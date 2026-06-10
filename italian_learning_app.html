@@ -1,0 +1,431 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.app{max-width:680px;margin:0 auto;padding:1rem 0}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:0.5px solid var(--color-border-tertiary)}
+.logo{width:40px;height:40px;border-radius:var(--border-radius-md);background:#1D9E75;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:500}
+.header-info{flex:1}
+.header-title{font-size:18px;font-weight:500;color:var(--color-text-primary)}
+.header-sub{font-size:13px;color:var(--color-text-secondary);margin-top:2px}
+.xp-bar-wrap{display:flex;align-items:center;gap:8px}
+.xp-bar{flex:1;height:6px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden}
+.xp-fill{height:100%;background:#1D9E75;border-radius:3px;transition:width 0.4s}
+.xp-label{font-size:12px;color:var(--color-text-secondary);min-width:60px;text-align:right}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.5rem}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.stat-val{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.stat-lbl{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.nav{display:flex;gap:6px;margin-bottom:1.5rem;overflow-x:auto}
+.nav-btn{padding:6px 14px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-secondary);font-size:13px;cursor:pointer;white-space:nowrap;transition:all 0.15s}
+.nav-btn.active{background:#1D9E75;color:#fff;border-color:#1D9E75}
+.nav-btn:hover:not(.active){background:var(--color-background-secondary)}
+.section{display:none}
+.section.active{display:block}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.module-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;cursor:pointer;transition:border-color 0.15s}
+.module-card:hover{border-color:var(--color-border-primary)}
+.module-card.locked{opacity:0.5;cursor:not-allowed}
+.module-card.completed{border-color:#1D9E75}
+.module-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.module-icon{width:36px;height:36px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:18px}
+.module-name{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.module-desc{font-size:12px;color:var(--color-text-secondary);margin-bottom:10px}
+.module-prog{height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden}
+.module-prog-fill{height:100%;background:#1D9E75;border-radius:2px}
+.module-badge{font-size:10px;padding:2px 7px;border-radius:var(--border-radius-md);margin-top:6px;display:inline-block}
+.badge-new{background:#E1F5EE;color:#0F6E56}
+.badge-done{background:#9FE1CB;color:#085041}
+.badge-lock{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.quiz-wrap{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.quiz-prog{font-size:13px;color:var(--color-text-secondary)}
+.quiz-timer{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.quiz-q{font-size:17px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px;line-height:1.4}
+.quiz-hint{font-size:13px;color:var(--color-text-secondary);margin-bottom:1.25rem}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.quiz-opt{padding:10px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px;cursor:pointer;transition:all 0.15s;text-align:left}
+.quiz-opt:hover:not(:disabled){background:var(--color-background-secondary);border-color:var(--color-border-primary)}
+.quiz-opt.correct{background:#E1F5EE;border-color:#1D9E75;color:#085041}
+.quiz-opt.wrong{background:#FAECE7;border-color:#D85A30;color:#712B13}
+.quiz-feedback{font-size:14px;padding:10px 14px;border-radius:var(--border-radius-md);margin-bottom:1rem;display:none}
+.feedback-ok{background:#E1F5EE;color:#0F6E56}
+.feedback-ko{background:#FAECE7;color:#712B13}
+.quiz-next{width:100%;padding:10px;border-radius:var(--border-radius-md);border:none;background:#1D9E75;color:#fff;font-size:15px;cursor:pointer;display:none;transition:opacity 0.15s}
+.quiz-next:hover{opacity:0.88}
+.quiz-result{text-align:center;padding:2rem 1rem}
+.result-score{font-size:48px;font-weight:500;color:#1D9E75;margin-bottom:6px}
+.result-label{font-size:16px;color:var(--color-text-secondary);margin-bottom:1.5rem}
+.result-xp{font-size:14px;background:#E1F5EE;color:#0F6E56;display:inline-block;padding:6px 14px;border-radius:var(--border-radius-md);margin-bottom:1.5rem}
+.result-btn{padding:10px 24px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px;cursor:pointer;margin:4px}
+.result-btn:hover{background:var(--color-background-secondary)}
+.vocab-search{width:100%;padding:8px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px;margin-bottom:1rem}
+.vocab-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.vocab-cat{padding:4px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;transition:all 0.15s}
+.vocab-cat.active{background:#1D9E75;color:#fff;border-color:#1D9E75}
+.vocab-list{display:flex;flex-direction:column;gap:6px;max-height:380px;overflow-y:auto}
+.vocab-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);cursor:pointer;transition:border-color 0.15s}
+.vocab-item:hover{border-color:var(--color-border-primary)}
+.vocab-it{font-size:15px;font-weight:500;color:var(--color-text-primary);flex:1}
+.vocab-fr{font-size:14px;color:var(--color-text-secondary);flex:1}
+.vocab-cat-tag{font-size:11px;padding:2px 7px;border-radius:var(--border-radius-md)}
+.vocab-star{font-size:16px;cursor:pointer;color:var(--color-text-secondary);transition:color 0.15s}
+.vocab-star.starred{color:#EF9F27}
+.flashcard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:2rem;text-align:center;cursor:pointer;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 0.15s;margin-bottom:1rem;position:relative}
+.flashcard:hover{transform:scale(1.01)}
+.fc-word{font-size:28px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.fc-hint{font-size:13px;color:var(--color-text-secondary)}
+.fc-reveal{font-size:22px;color:#1D9E75;margin-top:12px;display:none}
+.fc-btns{display:flex;gap:8px;justify-content:center}
+.fc-btn{padding:8px 20px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px;cursor:pointer}
+.fc-btn.ok{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75}
+.fc-btn.ko{background:#FAECE7;color:#712B13;border-color:#D85A30}
+.streak-row{display:flex;gap:6px;margin-bottom:1.5rem;justify-content:center}
+.streak-day{width:36px;height:36px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500}
+.streak-done{background:#1D9E75;color:#fff}
+.streak-today{background:#1D9E75;color:#fff;box-shadow:0 0 0 3px #9FE1CB}
+.streak-miss{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ach{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px;text-align:center}
+.ach-icon{font-size:24px;margin-bottom:6px}
+.ach-name{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.ach-desc{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.ach.locked{opacity:0.4}
+.section-title{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem}
+</style>
+
+<div class="app">
+  <h2 class="sr-only">Application gamifiée pour apprendre l'italien — modules, quiz, vocabulaire et progression</h2>
+
+  <div class="header">
+    <div class="logo">IT</div>
+    <div class="header-info">
+      <div class="header-title">Italiano <span style="font-size:12px;background:#E1F5EE;color:#0F6E56;padding:2px 7px;border-radius:4px;margin-left:4px">Niveau A2</span></div>
+      <div style="margin-top:4px">
+        <div class="xp-bar-wrap">
+          <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:42%"></div></div>
+          <div class="xp-label" id="xp-label">420 / 1000 XP</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:22px;color:#EF9F27" aria-label="5 jours de série">🔥<span style="font-size:13px;color:var(--color-text-secondary);margin-left:2px" id="streak-count">5</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-val" id="stat-mots">124</div><div class="stat-lbl">Mots appris</div></div>
+    <div class="stat"><div class="stat-val" id="stat-lecons">8</div><div class="stat-lbl">Leçons</div></div>
+    <div class="stat"><div class="stat-val" id="stat-quiz">92%</div><div class="stat-lbl">Précision</div></div>
+    <div class="stat"><div class="stat-val" id="stat-xp">420</div><div class="stat-lbl">XP total</div></div>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn active" onclick="showSection('modules')"><i class="ti ti-layout-grid" aria-hidden="true"></i> Modules</button>
+    <button class="nav-btn" onclick="showSection('quiz')"><i class="ti ti-quiz" aria-hidden="true"></i> Quiz</button>
+    <button class="nav-btn" onclick="showSection('vocab')"><i class="ti ti-book" aria-hidden="true"></i> Vocabulaire</button>
+    <button class="nav-btn" onclick="showSection('flashcards')"><i class="ti ti-cards" aria-hidden="true"></i> Flashcards</button>
+    <button class="nav-btn" onclick="showSection('progress')"><i class="ti ti-chart-bar" aria-hidden="true"></i> Progression</button>
+  </div>
+
+  <!-- MODULES -->
+  <div class="section active" id="s-modules">
+    <div class="section-title">Parcours d'apprentissage</div>
+    <div class="module-grid" id="module-grid"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="s-quiz">
+    <div class="quiz-wrap" id="quiz-container"></div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="section" id="s-vocab">
+    <div class="section-title">Dictionnaire &amp; Vocabulaire</div>
+    <input type="text" class="vocab-search" placeholder="Rechercher un mot en italien ou français..." oninput="filterVocab(this.value)" />
+    <div class="vocab-cats" id="vocab-cats"></div>
+    <div class="vocab-list" id="vocab-list"></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div class="section" id="s-flashcards">
+    <div class="section-title">Révision par flashcards</div>
+    <div id="fc-wrap"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="section" id="s-progress">
+    <div class="section-title">Série quotidienne</div>
+    <div class="streak-row" id="streak-row"></div>
+    <div class="section-title">Succès débloqués</div>
+    <div class="achievement-grid" id="ach-grid"></div>
+  </div>
+</div>
+
+<script>
+const MODULES = [
+  {id:1,name:"Salutations",desc:"Bonjour, au revoir, merci…",icon:"👋",color:"#E1F5EE",prog:100,status:"completed",xp:50},
+  {id:2,name:"Les chiffres",desc:"0 à 100, heures, dates",icon:"🔢",color:"#E6F1FB",prog:100,status:"completed",xp:50},
+  {id:3,name:"La famille",desc:"Père, mère, frère, sœur…",icon:"👨‍👩‍👧",color:"#FAEEDA",prog:65,status:"active",xp:0},
+  {id:4,name:"La nourriture",desc:"Pizzeria, dolci, pasta…",icon:"🍕",color:"#FAECE7",prog:30,status:"active",xp:0},
+  {id:5,name:"Les couleurs",desc:"Rosso, verde, azzurro…",icon:"🎨",color:"#FBEAF0",prog:0,status:"new",xp:0},
+  {id:6,name:"Les voyages",desc:"Gare, hôtel, billets…",icon:"✈️",color:"#EAF3DE",prog:0,status:"locked",xp:0},
+  {id:7,name:"Le corps",desc:"Testa, braccia, gambe…",icon:"🧍",color:"#EEEDFE",prog:0,status:"locked",xp:0},
+  {id:8,name:"Les verbes",desc:"Essere, avere, andare…",icon:"⚡",color:"#F1EFE8",prog:0,status:"locked",xp:0},
+];
+
+const QUESTIONS = [
+  {q:"Comment dit-on 'Bonjour' en italien ?",hint:"Utilisé le matin",opts:["Buongiorno","Buonasera","Arrivederci","Prego"],ans:0,expl:"'Buongiorno' = bonjour (matin). 'Buonasera' = bonsoir."},
+  {q:"Que signifie 'grazie' ?",hint:"Mot de politesse courant",opts:["S'il vous plaît","Pardon","Merci","Bonjour"],ans:2,expl:"'Grazie' = merci. 'Prego' = de rien."},
+  {q:"Comment dit-on 'deux' en italien ?",hint:"Chiffre après uno",opts:["Tre","Due","Quattro","Cinque"],ans:1,expl:"Uno, due, tre, quattro, cinque…"},
+  {q:"Que veut dire 'madre' ?",hint:"Membre de la famille féminin",opts:["Sœur","Grand-mère","Tante","Mère"],ans:3,expl:"Madre = mère. Padre = père."},
+  {q:"Comment dit-on 'rouge' en italien ?",hint:"Couleur du sang",opts:["Verde","Blu","Rosso","Giallo"],ans:2,expl:"Rosso = rouge. Verde = vert. Blu = bleu."},
+  {q:"Que signifie 'pizza margherita' ?",hint:"Plat emblématique",opts:["Pizza au fromage et tomate","Pizza aux légumes","Pizza sans fromage","Pizza épicée"],ans:0,expl:"La margherita = tomate + mozzarella, les couleurs du drapeau italien !"},
+  {q:"Comment dit-on 'au revoir' en italien ?",hint:"Pour se quitter",opts:["Ciao","Arrivederci","Pronto","Salve"],ans:1,expl:"'Arrivederci' = au revoir. 'Ciao' = salut (informel)."},
+  {q:"Que veut dire 'fratello' ?",hint:"Membre masculin de la fratrie",opts:["Cousin","Père","Oncle","Frère"],ans:3,expl:"Fratello = frère. Sorella = sœur."},
+];
+
+const VOCAB = [
+  {it:"ciao",fr:"salut",cat:"salutations"},
+  {it:"buongiorno",fr:"bonjour",cat:"salutations"},
+  {it:"arrivederci",fr:"au revoir",cat:"salutations"},
+  {it:"grazie",fr:"merci",cat:"salutations"},
+  {it:"prego",fr:"de rien / je vous en prie",cat:"salutations"},
+  {it:"uno",fr:"un",cat:"chiffres"},
+  {it:"due",fr:"deux",cat:"chiffres"},
+  {it:"tre",fr:"trois",cat:"chiffres"},
+  {it:"dieci",fr:"dix",cat:"chiffres"},
+  {it:"cento",fr:"cent",cat:"chiffres"},
+  {it:"madre",fr:"mère",cat:"famille"},
+  {it:"padre",fr:"père",cat:"famille"},
+  {it:"fratello",fr:"frère",cat:"famille"},
+  {it:"sorella",fr:"sœur",cat:"famille"},
+  {it:"figlio",fr:"fils",cat:"famille"},
+  {it:"pizza",fr:"pizza",cat:"nourriture"},
+  {it:"pasta",fr:"pâtes",cat:"nourriture"},
+  {it:"gelato",fr:"glace",cat:"nourriture"},
+  {it:"caffè",fr:"café",cat:"nourriture"},
+  {it:"pane",fr:"pain",cat:"nourriture"},
+  {it:"rosso",fr:"rouge",cat:"couleurs"},
+  {it:"verde",fr:"vert",cat:"couleurs"},
+  {it:"blu",fr:"bleu",cat:"couleurs"},
+  {it:"bianco",fr:"blanc",cat:"couleurs"},
+  {it:"nero",fr:"noir",cat:"couleurs"},
+];
+
+const CAT_COLORS = {
+  salutations:{bg:"#E1F5EE",c:"#085041"},
+  chiffres:{bg:"#E6F1FB",c:"#0C447C"},
+  famille:{bg:"#FAEEDA",c:"#633806"},
+  nourriture:{bg:"#FAECE7",c:"#712B13"},
+  couleurs:{bg:"#FBEAF0",c:"#72243E"},
+};
+
+let starred = new Set();
+let vocabFilter = {search:"",cat:"all"};
+let quizState = {idx:0,score:0,answered:false,timer:null,secs:20,done:false};
+let fcIdx = 0, fcRevealed = false;
+let fcDeck = [...VOCAB].sort(()=>Math.random()-0.5);
+let totalXP = 420;
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  event.target.classList.add('active');
+  if(id==='quiz') renderQuiz();
+  if(id==='flashcards') renderFlashcard();
+  if(id==='vocab') renderVocab();
+  if(id==='progress') renderProgress();
+}
+
+function renderModules(){
+  const g = document.getElementById('module-grid');
+  g.innerHTML = MODULES.map(m=>`
+    <div class="module-card ${m.status==='locked'?'locked':''} ${m.status==='completed'?'completed':''}" onclick="${m.status!=='locked'?`startModule(${m.id})`:''}">
+      <div class="module-top">
+        <div class="module-icon" style="background:${m.color}">${m.icon}</div>
+        <div>
+          <div class="module-name">${m.name}</div>
+          <span class="module-badge ${m.status==='completed'?'badge-done':m.status==='locked'?'badge-lock':'badge-new'}">${m.status==='completed'?'✓ Terminé':m.status==='locked'?'🔒 Verrouillé':'En cours'}</span>
+        </div>
+      </div>
+      <div class="module-desc">${m.desc}</div>
+      <div class="module-prog"><div class="module-prog-fill" style="width:${m.prog}%"></div></div>
+      <div style="font-size:11px;color:var(--color-text-secondary);margin-top:4px">${m.prog}% • ${m.status==='completed'?m.xp+' XP gagnés':'Continuer'}</div>
+    </div>`).join('');
+}
+
+function startModule(id){
+  showSection('quiz');
+  document.querySelectorAll('.nav-btn')[1].classList.add('active');
+  document.querySelectorAll('.nav-btn')[0].classList.remove('active');
+  quizState = {idx:0,score:0,answered:false,timer:null,secs:20,done:false};
+  renderQuiz();
+}
+
+function renderQuiz(){
+  const c = document.getElementById('quiz-container');
+  if(quizState.done){
+    const pct = Math.round(quizState.score/QUESTIONS.length*100);
+    const xpGained = Math.round(pct*0.5);
+    c.innerHTML = `<div class="quiz-result">
+      <div class="result-score">${pct}%</div>
+      <div class="result-label">${pct>=80?'Excellent ! Bravo !':pct>=60?'Bien joué !':'Continue à pratiquer !'}</div>
+      <div class="result-xp">+${xpGained} XP gagnés</div>
+      <div style="font-size:14px;color:var(--color-text-secondary);margin-bottom:1.5rem">${quizState.score} / ${QUESTIONS.length} bonnes réponses</div>
+      <button class="result-btn" onclick="restartQuiz()"><i class="ti ti-refresh" aria-hidden="true"></i> Recommencer</button>
+      <button class="result-btn" onclick="sendPrompt('Je veux pratiquer plus l\'italien avec des phrases complètes')">Pratiquer ↗</button>
+    </div>`;
+    addXP(xpGained);
+    return;
+  }
+  const q = QUESTIONS[quizState.idx];
+  c.innerHTML = `
+    <div class="quiz-header">
+      <span class="quiz-prog">Question ${quizState.idx+1} / ${QUESTIONS.length}</span>
+      <span class="quiz-timer" id="q-timer">⏱ ${quizState.secs}s</span>
+    </div>
+    <div style="height:4px;background:var(--color-background-secondary);border-radius:2px;margin-bottom:1rem;overflow:hidden"><div style="height:100%;background:#1D9E75;width:${(quizState.idx/QUESTIONS.length)*100}%;transition:width 0.3s"></div></div>
+    <div class="quiz-q">${q.q}</div>
+    <div class="quiz-hint">${q.hint}</div>
+    <div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" id="opt-${i}" onclick="answerQuiz(${i})">${o}</button>`).join('')}</div>
+    <div class="quiz-feedback" id="q-feedback"></div>
+    <button class="quiz-next" id="q-next" onclick="nextQuestion()">Suivant →</button>`;
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(quizState.timer);
+  quizState.secs = 20;
+  quizState.timer = setInterval(()=>{
+    quizState.secs--;
+    const el = document.getElementById('q-timer');
+    if(el) el.textContent = `⏱ ${quizState.secs}s`;
+    if(quizState.secs<=0){clearInterval(quizState.timer);if(!quizState.answered)answerQuiz(-1);}
+  },1000);
+}
+
+function answerQuiz(i){
+  if(quizState.answered)return;
+  quizState.answered = true;
+  clearInterval(quizState.timer);
+  const q = QUESTIONS[quizState.idx];
+  const correct = i===q.ans;
+  if(correct) quizState.score++;
+  document.querySelectorAll('.quiz-opt').forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===q.ans) b.classList.add('correct');
+    else if(idx===i) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('q-feedback');
+  fb.className = 'quiz-feedback '+(correct?'feedback-ok':'feedback-ko');
+  fb.textContent = correct ? '✓ Correct ! '+q.expl : '✗ '+q.expl;
+  fb.style.display='block';
+  document.getElementById('q-next').style.display='block';
+}
+
+function nextQuestion(){
+  quizState.idx++;
+  quizState.answered = false;
+  if(quizState.idx>=QUESTIONS.length) quizState.done=true;
+  renderQuiz();
+}
+
+function restartQuiz(){
+  quizState={idx:0,score:0,answered:false,timer:null,secs:20,done:false};
+  renderQuiz();
+}
+
+function renderVocab(){
+  const cats = ['all',...new Set(VOCAB.map(v=>v.cat))];
+  document.getElementById('vocab-cats').innerHTML = cats.map(c=>`<button class="vocab-cat ${vocabFilter.cat===c?'active':''}" onclick="setVocabCat('${c}')">${c==='all'?'Tout':c}</button>`).join('');
+  const s = vocabFilter.search.toLowerCase();
+  const filtered = VOCAB.filter(v=>(vocabFilter.cat==='all'||v.cat===vocabFilter.cat)&&(v.it.includes(s)||v.fr.includes(s)));
+  const col = CAT_COLORS;
+  document.getElementById('vocab-list').innerHTML = filtered.map((v,i)=>{
+    const cc = col[v.cat]||{bg:'#F1EFE8',c:'#444441'};
+    return `<div class="vocab-item">
+      <span class="vocab-it">${v.it}</span>
+      <span class="vocab-fr">${v.fr}</span>
+      <span class="vocab-cat-tag" style="background:${cc.bg};color:${cc.c}">${v.cat}</span>
+      <span class="vocab-star ${starred.has(v.it)?'starred':''}" onclick="toggleStar('${v.it}',this)" aria-label="Favori">★</span>
+    </div>`;
+  }).join('') || '<div style="padding:1rem;color:var(--color-text-secondary);font-size:14px">Aucun résultat</div>';
+}
+
+function setVocabCat(c){vocabFilter.cat=c;renderVocab();}
+function filterVocab(s){vocabFilter.search=s;renderVocab();}
+function toggleStar(word,el){
+  starred.has(word)?starred.delete(word):starred.add(word);
+  el.classList.toggle('starred');
+}
+
+function renderFlashcard(){
+  if(fcIdx>=fcDeck.length){
+    document.getElementById('fc-wrap').innerHTML=`<div style="text-align:center;padding:2rem;color:var(--color-text-secondary)">
+      <div style="font-size:32px;margin-bottom:8px">🎉</div>
+      <div style="font-size:16px;font-weight:500;color:var(--color-text-primary)">Toutes les cartes revues !</div>
+      <div style="font-size:13px;margin-top:6px;margin-bottom:1.5rem">+30 XP gagnés</div>
+      <button class="fc-btn" onclick="fcIdx=0;fcDeck=[...VOCAB].sort(()=>Math.random()-0.5);renderFlashcard()">Recommencer</button>
+    </div>`;
+    addXP(30);return;
+  }
+  const v = fcDeck[fcIdx];
+  document.getElementById('fc-wrap').innerHTML=`
+    <div style="font-size:12px;color:var(--color-text-secondary);text-align:center;margin-bottom:8px">${fcIdx+1} / ${fcDeck.length}</div>
+    <div class="flashcard" onclick="revealFc()" id="fc-card">
+      <div class="fc-word">${v.it}</div>
+      <div class="fc-hint">Cliquer pour révéler</div>
+      <div class="fc-reveal" id="fc-rev">${v.fr}</div>
+    </div>
+    <div class="fc-btns" id="fc-btns" style="display:none">
+      <button class="fc-btn ko" onclick="fcAnswer(false)"><i class="ti ti-x" aria-hidden="true"></i> À revoir</button>
+      <button class="fc-btn ok" onclick="fcAnswer(true)"><i class="ti ti-check" aria-hidden="true"></i> Connu !</button>
+    </div>`;
+  fcRevealed=false;
+}
+
+function revealFc(){
+  if(fcRevealed)return;
+  fcRevealed=true;
+  document.getElementById('fc-rev').style.display='block';
+  document.getElementById('fc-hint') && (document.getElementById('fc-hint').textContent='');
+  document.getElementById('fc-btns').style.display='flex';
+}
+
+function fcAnswer(ok){
+  if(ok){addXP(5);} else {fcDeck.push(fcDeck[fcIdx]);}
+  fcIdx++;
+  renderFlashcard();
+}
+
+function renderProgress(){
+  const days=['L','M','M','J','V','S','D'];
+  const done=[true,true,true,true,true,true,false];
+  document.getElementById('streak-row').innerHTML=days.map((d,i)=>`<div class="streak-day ${done[i]?i===5?'streak-today':'streak-done':'streak-miss'}">${d}</div>`).join('');
+  const achs=[
+    {icon:'🌱',name:'Premier pas',desc:'1ère leçon terminée',done:true},
+    {icon:'🔥',name:'En feu',desc:'5 jours consécutifs',done:true},
+    {icon:'🎯',name:'Précis',desc:'10 quiz à 100%',done:false},
+    {icon:'📚',name:'Lecteur',desc:'50 mots appris',done:true},
+    {icon:'🏆',name:'Champion',desc:'Tous les modules A1',done:false},
+    {icon:'⚡',name:'Rapide',desc:'Quiz en moins de 10s',done:false},
+  ];
+  document.getElementById('ach-grid').innerHTML=achs.map(a=>`<div class="ach ${a.done?'':'locked'}">
+    <div class="ach-icon">${a.icon}</div>
+    <div class="ach-name">${a.name}</div>
+    <div class="ach-desc">${a.desc}</div>
+  </div>`).join('');
+}
+
+function addXP(n){
+  totalXP+=n;
+  document.getElementById('stat-xp').textContent=totalXP;
+  const pct=Math.min(100,Math.round((totalXP%1000)/10));
+  document.getElementById('xp-fill').style.width=pct+'%';
+  document.getElementById('xp-label').textContent=(totalXP%1000)+' / 1000 XP';
+}
+
+renderModules();
+renderVocab();
+renderProgress();
+</script>
