@@ -870,13 +870,136 @@ function renderLesson(area, lessonId){
 }
 
 const LESSON_CONTENT = {
-'a1-1': () => `<div class="card"><h3>L'alphabet</h3>${renderAlphaGrid()}</div>`,
-'a1-3': () => `<div class="card"><h3>Le présent</h3>${renderConjTable('Verbe', CONJ_PRESENT)}</div>`,
-'a1-4': () => `<div class="card"><h3>Essere et Avere</h3>${renderConjTable('Verbe', CONJ_ESSERE_AVERE)}</div>`,
-'a1-6': () => `<div class="card"><h3>Lexique</h3>${renderVocabGrid(VOCAB_ALL.slice(0,8))}</div>`,
-'a2-1': () => `<div class="card"><h3>Passato Prossimo</h3>${renderConjTable('Verbe', CONJ_PASSATO)}</div>`,
-'a2-2': () => `<div class="card"><h3>Imperfetto</h3>${renderConjTable('Verbe', CONJ_IMPERFETTO)}</div>`,
-'a2-3': () => `<div class="card"><h3>Prépositions</h3>${renderPrepTable()}</div>`,
+/* ================== NIVEAU A1 ================== */
+'a1-1': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Sons spécifiques de l'italien</h3>
+    <p>L'italien se prononce presque comme il s'écrit. Clique sur chaque carte pour écouter la prononciation correcte.</p>
+    ${renderAlphaGrid()}
+  </div>
+  ${renderAlertBox('Piège fréquent', 'Contrairement au français, presque toutes les lettres se prononcent en italien : il n\\'y a pas de lettres muettes en fin de mot (sauf le "h").')}
+`,
+'a1-2': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Articles définis</h3>
+    <p>L'article varie selon le genre (masculin/féminin) et la première lettre du mot qui suit.</p>
+    <div class="course-table-wrap"><table class="course-table">
+      <thead><tr><th>Cas</th><th>Singulier</th><th>Pluriel</th></tr></thead>
+      <tbody>
+        <tr><td>Masc. + consonne</td><td>il <em class="it">(il libro)</em></td><td>i <em class="it">(i libri)</em></td></tr>
+        <tr><td>Masc. + s+cons / z</td><td>lo <em class="it">(lo zaino)</em></td><td>gli <em class="it">(gli zaini)</em></td></tr>
+        <tr><td>Masc. + voyelle</td><td>l' <em class="it">(l'amico)</em></td><td>gli <em class="it">(gli amici)</em></td></tr>
+        <tr><td>Fém. + consonne</td><td>la <em class="it">(la casa)</em></td><td>le <em class="it">(le case)</em></td></tr>
+        <tr><td>Fém. + voyelle</td><td>l' <em class="it">(l'amica)</em></td><td>le <em class="it">(le amiche)</em></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Articles indéfinis</h3>
+    <div class="course-table-wrap"><table class="course-table">
+      <thead><tr><th>Cas</th><th>Article</th><th>Exemple</th></tr></thead>
+      <tbody>
+        <tr><td>Masc. + consonne</td><td>un</td><td>un libro</td></tr>
+        <tr><td>Masc. + s+cons / z</td><td>uno</td><td>uno studente</td></tr>
+        <tr><td>Fém. + consonne</td><td>una</td><td>una casa</td></tr>
+        <tr><td>Fém. + voyelle</td><td>un'</td><td>un'amica</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  ${renderAlertBox('Faux-ami', '"Libreria" ne signifie pas "librairie" mais "bibliothèque" ou "étagère". Une librairie se dit "negozio di libri".')}
+`,
+'a1-3': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les trois groupes réguliers</h3>
+    <p>Les verbes réguliers se terminent en <strong>-are</strong> (1er groupe, le plus fréquent), <strong>-ere</strong> (2e groupe) ou <strong>-ire</strong> (3e groupe).</p>
+    ${renderConjTable('Verbe', CONJ_PRESENT)}
+  </div>
+  ${renderAlertBox('Astuce', 'Le pronom sujet (io, tu, lui...) est souvent omis car la terminaison du verbe indique déjà la personne : "Parlo italiano" suffit, pas besoin de dire "io parlo".')}
+`,
+'a1-4': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Conjugaison des auxiliaires</h3>
+    <p>Ce sont les deux verbes les plus importants, mais ils sont très irréguliers.</p>
+    ${renderConjTable('Verbe', CONJ_ESSERE_AVERE)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Expressions avec avere</h3>
+    <p>L'italien utilise <em class="it">avere</em> pour des sensations où le français utilise parfois "être" :</p>
+    <ul>
+      <li><em class="it">avere fame / avere sete</em> — avoir faim / avoir soif</li>
+      <li><em class="it">avere caldo / avere freddo</em> — avoir chaud / avoir froid</li>
+      <li><em class="it">avere ragione / avere torto</em> — avoir raison / avoir tort</li>
+    </ul>
+  </div>
+  ${renderAlertBox('Attention', 'On dit "ho 20 anni" (j\\'ai 20 ans) et non "sono 20 anni". L\\'âge se construit toujours avec avere.')}
+`,
+'a1-5': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les pronoms sujets</h3>
+    <p><strong>io</strong> (je), <strong>tu</strong> (tu), <strong>lui / lei</strong> (il / elle), <strong>noi</strong> (nous), <strong>voi</strong> (vous pluriel), <strong>loro</strong> (ils / elles).</p>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Le vouvoiement de politesse (Lei)</h3>
+    <p>Contrairement au français qui utilise la 2e personne du pluriel (Vous), l'italien utilise la 3e personne du singulier pour vouvoyer une personne : <em class="it">Lei è italiano?</em> (Êtes-vous italien ?).</p>
+  </div>
+  ${renderAlertBox('À savoir', 'Le "Lei" de politesse s\\'écrit toujours avec une majuscule pour le distinguer du "lei" minuscule qui signifie "elle".')}
+`,
+'a1-6': () => `
+  <div class="card"><h3>La famiglia</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Famille'))}</div>
+  <div class="card"><h3>I numeri</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Chiffres'))}</div>
+  <div class="card"><h3>I colori</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Couleurs'))}</div>
+  <div class="card"><h3>I giorni</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Jours'))}</div>
+`,
+
+/* ================== NIVEAU A2 ================== */
+'a2-1': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Le Passé Composé</h3>
+    <p>La majorité des verbes utilisent <em class="it">avere</em>. Les verbes de mouvement, d'état et les verbes pronominaux utilisent <em class="it">essere</em>.</p>
+    ${renderConjTable('Verbe', CONJ_PASSATO)}
+  </div>
+  ${renderAlertBox('Règle d\\'or', 'Avec l\\'auxiliaire "essere", le participe passé s\\'accorde en genre et en nombre avec le sujet : "Maria è andata" (fém. sing.), "I ragazzi sono andati" (masc. plur.). Avec "avere", pas d\\'accord.')}
+`,
+'a2-2': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Formation de l'Imparfait</h3>
+    ${renderConjTable('Verbe', CONJ_IMPERFETTO)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Imperfetto vs Passato prossimo</h3>
+    <p>L'<strong>imperfetto</strong> décrit le décor, les habitudes ("quand j'étais enfant..."). Le <strong>passato prossimo</strong> marque une action ponctuelle et terminée.</p>
+  </div>
+  ${renderAlertBox('Exemple', 'Les deux temps se mélangent souvent : "Mentre dormivo (imparfait, état), è suonato il telefono (passé composé, action ponctuelle)".')}
+`,
+'a2-3': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Tableau des contractions</h3>
+    <p>Les prépositions (di, a, da, in, su) fusionnent obligatoirement avec l'article défini qui les suit.</p>
+    ${renderPrepTable()}
+  </div>
+  ${renderAlertBox('Attention', 'La contraction est obligatoire en italien. On ne dit jamais "in il cinema" mais "nel cinema".')}
+`,
+'a2-4': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Comparatifs</h3>
+    <ul>
+      <li><em class="it">più ... di</em> — plus ... que : <em class="it">Roma è più grande di Firenze.</em></li>
+      <li><em class="it">meno ... di</em> — moins ... que</li>
+      <li><em class="it">tanto ... quanto / così ... come</em> — aussi ... que</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Superlatif absolu</h3>
+    <p>Pour dire "très + adjectif", on ajoute souvent <strong>-issimo</strong> à la fin : <em class="it">bello → bellissimo</em> (très beau), <em class="it">buono → buonissimo</em>.</p>
+  </div>
+`,
+'a2-5': () => `
+  <div class="card"><h3>Il cibo (Nourriture)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Nourriture'))}</div>
+  <div class="card"><h3>I viaggi (Voyages)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Voyages'))}</div>
+  <div class="card"><h3>Il tempo (Météo)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Météo'))}</div>
+`,
+
+/* === Stubs pour les niveaux supérieurs (pour éviter que l'app plante) === */
 'b1-1': () => `<div class="card"><h3>Futur</h3>${renderConjTable('Verbe', CONJ_FUTURO)}</div>`,
 'b1-2': () => `<div class="card"><h3>Subjonctif</h3>${renderConjTable('Verbe', CONJ_CONGIUNTIVO_PRES)}</div>`
 };
