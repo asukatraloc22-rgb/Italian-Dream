@@ -419,7 +419,7 @@ const VOCAB_ALL = [
   {it:'il fratello', fr:'le frère', cat:'Famille'}, {it:'la sorella', fr:'la sœur', cat:'Famille'},
   {it:'i nonni', fr:'les grands-parents', cat:'Famille'}, {it:'lo zio', fr:'l\'oncle', cat:'Famille'},
   {it:'la zia', fr:'la tante', cat:'Famille'}, {it:'il cugino', fr:'le cousin', cat:'Famille'},
-  {it:'il marito', fr:'le mari', cat:'Famille'}, {it:'la moglie', fr:'la femme (épouse)', cat:'Famille'},
+  {it:'il marito', fr:'le mari', cat:'Famille'}, {it:'la moglie', fr:'la femme', cat:'Famille'},
   
   /* Chiffres */
   {it:'zero', fr:'zéro', cat:'Chiffres'}, {it:'uno', fr:'un', cat:'Chiffres'}, 
@@ -427,8 +427,7 @@ const VOCAB_ALL = [
   {it:'quattro', fr:'quatre', cat:'Chiffres'}, {it:'cinque', fr:'cinq', cat:'Chiffres'},
   {it:'sei', fr:'six', cat:'Chiffres'}, {it:'sette', fr:'sept', cat:'Chiffres'},
   {it:'otto', fr:'huit', cat:'Chiffres'}, {it:'nove', fr:'neuf', cat:'Chiffres'},
-  {it:'dieci', fr:'dix', cat:'Chiffres'}, {it:'undici', fr:'onze', cat:'Chiffres'},
-  {it:'dodici', fr:'douze', cat:'Chiffres'}, {it:'venti', fr:'vingt', cat:'Chiffres'},
+  {it:'dieci', fr:'dix', cat:'Chiffres'}, {it:'venti', fr:'vingt', cat:'Chiffres'},
   {it:'cento', fr:'cent', cat:'Chiffres'}, {it:'mille', fr:'mille', cat:'Chiffres'},
   
   /* Couleurs */
@@ -436,28 +435,44 @@ const VOCAB_ALL = [
   {it:'blu', fr:'bleu foncé', cat:'Couleurs'}, {it:'azzurro', fr:'bleu clair', cat:'Couleurs'},
   {it:'giallo', fr:'jaune', cat:'Couleurs'}, {it:'nero', fr:'noir', cat:'Couleurs'},
   {it:'bianco', fr:'blanc', cat:'Couleurs'}, {it:'grigio', fr:'gris', cat:'Couleurs'},
-  {it:'marrone', fr:'marron', cat:'Couleurs'}, {it:'rosa', fr:'rose', cat:'Couleurs'},
-
-  /* Jours et Mois */
+  
+  /* Jours */
   {it:'lunedì', fr:'lundi', cat:'Jours'}, {it:'martedì', fr:'mardi', cat:'Jours'},
   {it:'mercoledì', fr:'mercredi', cat:'Jours'}, {it:'giovedì', fr:'jeudi', cat:'Jours'},
   {it:'venerdì', fr:'vendredi', cat:'Jours'}, {it:'sabato', fr:'samedi', cat:'Jours'},
-  {it:'domenica', fr:'dimanche', cat:'Jours'}, {it:'gennaio', fr:'janvier', cat:'Jours'},
-  {it:'febbraio', fr:'février', cat:'Jours'}, {it:'marzo', fr:'mars', cat:'Jours'},
+  {it:'domenica', fr:'dimanche', cat:'Jours'},
   
   /* Salutations */
-  {it:'buongiorno', fr:'bonjour (matin)', cat:'Salutations'}, {it:'buonasera', fr:'bonsoir', cat:'Salutations'},
-  {it:'buonanotte', fr:'bonne nuit', cat:'Salutations'}, {it:'ciao', fr:'salut (familier)', cat:'Salutations'},
-  {it:'arrivederci', fr:'au revoir (neutre)', cat:'Salutations'}, {it:'salve', fr:'bonjour (soutenu)', cat:'Salutations'},
-  {it:'grazie', fr:'merci', cat:'Salutations'}, {it:'prego', fr:'je t\'en prie / de rien', cat:'Salutations'},
+  {it:'buongiorno', fr:'bonjour', cat:'Salutations'}, {it:'buonasera', fr:'bonsoir', cat:'Salutations'},
+  {it:'ciao', fr:'salut', cat:'Salutations'}, {it:'arrivederci', fr:'au revoir', cat:'Salutations'},
+  {it:'grazie', fr:'merci', cat:'Salutations'}, {it:'prego', fr:'je t\'en prie', cat:'Salutations'},
   {it:'scusa', fr:'pardon (tu)', cat:'Salutations'}, {it:'scusi', fr:'pardon (Lei)', cat:'Salutations'},
 
-  /* Nourriture / Voyages / Météo de base */
+  /* Nourriture (Enrichi A2) */
   {it:'il pane', fr:'le pain', cat:'Nourriture'}, {it:'la pasta', fr:'les pâtes', cat:'Nourriture'},
+  {it:'il formaggio', fr:'le fromage', cat:'Nourriture'}, {it:'il pomodoro', fr:'la tomate', cat:'Nourriture'},
+  {it:'la carne', fr:'la viande', cat:'Nourriture'}, {it:'il pesce', fr:'le poisson', cat:'Nourriture'},
+  {it:'l\'acqua', fr:'l\'eau', cat:'Nourriture'}, {it:'il vino', fr:'le vin', cat:'Nourriture'},
+  {it:'la colazione', fr:'le petit-déjeuner', cat:'Nourriture'}, {it:'il pranzo', fr:'le déjeuner', cat:'Nourriture'},
+  {it:'la cena', fr:'le dîner', cat:'Nourriture'}, {it:'il dolce', fr:'le dessert', cat:'Nourriture'},
+
+  /* Voyages (Enrichi A2) */
   {it:'il treno', fr:'le train', cat:'Voyages'}, {it:'il biglietto', fr:'le billet', cat:'Voyages'},
-  {it:'il sole', fr:'le soleil', cat:'Météo'}, {it:'la pioggia', fr:'la pluie', cat:'Météo'}
+  {it:'la stazione', fr:'la gare', cat:'Voyages'}, {it:'il binario', fr:'la voie (quai)', cat:'Voyages'},
+  {it:'l\'aeroporto', fr:'l\'aéroport', cat:'Voyages'}, {it:'il volo', fr:'le vol', cat:'Voyages'},
+  {it:'la valigia', fr:'la valise', cat:'Voyages'}, {it:'il passaporto', fr:'le passeport', cat:'Voyages'},
+  {it:'l\'albergo', fr:'l\'hôtel', cat:'Voyages'}, {it:'la camera doppia', fr:'la chambre double', cat:'Voyages'},
+
+  /* Météo (Enrichi A2) */
+  {it:'il sole', fr:'le sole', cat:'Météo'}, {it:'la pioggia', fr:'la pioggia', cat:'Météo'},
+  {it:'fa caldo', fr:'il fait chaud', cat:'Météo'}, {it:'fa freddo', fr:'il fait froid', cat:'Météo'},
+  {it:'piove', fr:'il pleut', cat:'Météo'}, {it:'nevica', fr:'il neige', cat:'Météo'},
+  {it:'c\'è vento', fr:'il y a du vent', cat:'Météo'}, {it:'le nuvole', fr:'les nuages', cat:'Météo'}
 ];
 
+/* ================================================================
+   GRAMMAR TABLES
+   ================================================================ */
 const CONJ_PRESENT = {
   '-are (parlare)':['parlo','parli','parla','parliamo','parlate','parlano'],
   '-ere (vedere)':['vedo','vedi','vede','vediamo','vedete','vedono'],
@@ -474,8 +489,14 @@ const CONJ_PASSATO = {
 };
 const CONJ_IMPERFETTO = {
   'Parlare':['parlavo','parlavi','parlava','parlavamo','parlavate','parlavano'],
-  'Avere':['avevo','avevi','aveva','avevamo','avevate','avevano'],
-  'Essere':['ero','eri','era','eravamo','eravate','erano']
+  'Vedere':['vedevo','vedevi','vedeva','vedevamo','vedevate','vedevano'],
+  'Dormire':['dormivo','dormivi','dormiva','dormivamo','dormivate','dormivano']
+};
+const CONJ_IMPERFETTO_IRREG = {
+  'Essere':['ero','eri','era','eravamo','eravate','erano'],
+  'Fare':['facevo','facevi','faceva','facevamo','facevate','facevano'],
+  'Bere':['bevevo','bevevi','beveva','bevevamo','bevevate','bevevano'],
+  'Dire':['dicevo','dicevi','diceva','dicevamo','dicevate','dicevano']
 };
 const CONJ_FUTURO = {
   'Parlare (futur)':['parlerò','parlerai','parlerà','parleremo','parlerete','parleranno'],
@@ -485,19 +506,15 @@ const CONJ_CONGIUNTIVO_PRES = {
   'Che io/tu/lui parli':['parli','parli','parli','parliamo','parliate','parlino'],
   'Che io/tu/lui sia':['sia','sia','sia','siamo','siate','siano']
 };
-const CONJ_CONGIUNTIVO_IMPF = {
-  'Che parlassi':['parlassi','parlassi','parlasse','parlassimo','parlaste','parlassero'],
-  'Che fossi':['fossi','fossi','fosse','fossimo','foste','fossero']
-};
 
 const PREPOSIZIONI_ARTICOLATE = {
-  headers:['','il','lo','la','i','gli','le'],
+  headers:['','il','lo','la','l\'','i','gli','le'],
   rows:[
-    ['di', 'del','dello','della','dei','degli','delle'],
-    ['a', 'al','allo','alla','ai','agli','alle'],
-    ['da', 'dal','dallo','dalla','dai','dagli','dalle'],
-    ['in', 'nel','nello','nella','nei','negli','nelle'],
-    ['su', 'sul','sullo','sulla','sui','sugli','sulle']
+    ['di (de)', 'del','dello','della','dell\'','dei','degli','delle'],
+    ['a (à)', 'al','allo','alla','all\'','ai','agli','alle'],
+    ['da (de/chez)', 'dal','dallo','dalla','dall\'','dai','dagli','dalle'],
+    ['in (dans)', 'nel','nello','nella','nell\'','nei','negli','nelle'],
+    ['su (sur)', 'sul','sullo','sulla','sull\'','sui','sugli','sulle']
   ]
 };
 
@@ -505,17 +522,7 @@ const EXAMS = [
   {id:'ex-a1', level:'A1', cert:'CILS A1', duration:'60 min', parts:'Ascolto · Lettura · Scrittura', unlockAt:0},
   {id:'ex-a2', level:'A2', cert:'CELI 1', duration:'90 min', parts:'4 épreuves complètes', unlockAt:6},
   {id:'ex-b1', level:'B1', cert:'CILS B1', duration:'120 min', parts:'4 épreuves + orale', unlockAt:11},
-  {id:'ex-b2', level:'B2', cert:'CELI 3', duration:'150 min', parts:'4 épreuves + orale', unlockAt:15},
-  {id:'ex-c1', level:'C1', cert:'CILS C1', duration:'180 min', parts:'4 épreuves + orale', unlockAt:19},
-  {id:'ex-c2', level:'C2', cert:'CELI 5', duration:'210 min', parts:'4 épreuves + orale', unlockAt:22}
-];
-
-const FALSE_FRIENDS = [
-  {it:'camera', faux:'caméra', vrai:'chambre'},
-  {it:'firma', faux:'firme', vrai:'signature'},
-  {it:'libreria', faux:'librairie', vrai:'bibliothèque'},
-  {it:'burro', faux:'bureau', vrai:'beurre'},
-  {it:'guardare', faux:'garder', vrai:'regarder'}
+  {id:'ex-b2', level:'B2', cert:'CELI 3', duration:'150 min', parts:'4 épreuves + orale', unlockAt:15}
 ];
 
 /* ================================================================
@@ -529,7 +536,7 @@ const defaultState = {
   xp: 140,
   streak: 5,
   streakDays: [1,1,1,1,1,0,0],
-  openLevels: ['A1'],
+  openLevels: ['A1', 'A2'],
   darkMode: false,
   audioSpeed: 1,
   sidebarCollapsed: false
@@ -777,9 +784,9 @@ function renderHome(area){
   area.innerHTML = `
     <div class="hero-banner">
       <div class="hero-eyebrow">Buongiorno e benvenuto</div>
-      <h1 class="hero-title">Apprends l'italien pas à pas, avec plaisir.</h1>
-      <p class="hero-text">24 leçons réparties sur les six niveaux du CECR, des exercices variés et des examens blancs.</p>
-      <button class="hero-cta" onclick="loadContent('lesson', 'a1-1')">Commencer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <h1 class="hero-title">Apprends l'italien pas à pas, con piacere.</h1>
+      <p class="hero-text">Poursuis ton apprentissage. Tes leçons et ta progression sont sauvegardées automatiquement.</p>
+      <button class="hero-cta" onclick="loadContent('lesson', 'a1-1')">Continuer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
     <div class="dash-grid">
       <div class="metric-card"><div class="metric-icon">🔥</div><div class="metric-val">${state.streak}</div><div class="metric-lbl">Jours</div></div>
@@ -804,7 +811,7 @@ function renderExercisesHub(area){
 
 function startFlashcards(){
   const area = document.getElementById('contentArea');
-  const wordsToPractice = VOCAB_ALL.slice(0, 5); 
+  const wordsToPractice = VOCAB_ALL.slice(0, 10); 
   let currentCard = 0;
   
   window.nextFlashcard = (knew) => {
@@ -815,7 +822,10 @@ function startFlashcards(){
 
   const renderCard = () => {
     if(currentCard >= wordsToPractice.length) {
-      showToast('🏆', 'Révision terminée !');
+      showToast('🏆', 'Révision terminée ! +10 XP');
+      state.xp += 10;
+      updateTopbarStats();
+      saveLocalState();
       renderExercisesHub(area);
       return;
     }
@@ -824,8 +834,8 @@ function startFlashcards(){
       <div class="flash-stage">
         <div class="flashcard-3d" onclick="this.classList.toggle('flipped'); if(this.classList.contains('flipped')) speakItalian('${safeEscape(w.it)}')">
           <div class="flashcard-inner">
-            <div class="flashcard-face front"><div class="fc-word-it">${w.fr}</div></div>
-            <div class="flashcard-face back"><div class="fc-word-it">${w.it}</div></div>
+            <div class="flashcard-face front"><div class="fc-word-it">${w.fr}</div><div class="fc-hint-txt">Cliquez pour retourner</div></div>
+            <div class="flashcard-face back"><div class="fc-word-it">${w.it}</div><div class="fc-hint-txt">🔊 Écouter</div></div>
           </div>
         </div>
         <div class="flash-controls">
@@ -863,7 +873,7 @@ function renderExams(area){
 }
 
 function renderProgress(area){
-  area.innerHTML = `<p class="lesson-intro">Suivez votre assiduité.</p>`;
+  area.innerHTML = `<p class="lesson-intro">Continue d'apprendre pour débloquer de nouveaux succès.</p>`;
 }
 
 function renderSettings(area){
@@ -885,7 +895,7 @@ function toggleDarkMode(btn){
 }
 
 /* ================================================================
-   LESSONS
+   LESSONS CONTENT (A1 + A2 COMPLET)
    ================================================================ */
 function renderLesson(area, lessonId){
   let meta = null;
@@ -911,42 +921,29 @@ function renderLesson(area, lessonId){
 }
 
 const LESSON_CONTENT = {
-/* ================== NIVEAU A1 ULTRA-COMPLET ================== */
+
+/* ================== NIVEAU A1 ================== */
 'a1-1': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Les consonnes dures et douces (C et G)</h3>
     <p>La règle d'or en italien : la prononciation du C et du G dépend de la voyelle qui suit.</p>
     <ul>
-      <li><strong>Devant A, O, U ou une consonne :</strong> le son est dur. <br>Exemples : <em class="it">casa</em> [k], <em class="it">gatto</em> [g].</li>
-      <li><strong>Devant E et I :</strong> le son est doux.<br>Exemples : <em class="it">ciao</em> [tch], <em class="it">gelato</em> [dj].</li>
-      <li><strong>Pour durcir devant E et I :</strong> on ajoute un "H".<br>Exemples : <em class="it">chiesa</em> [k], <em class="it">spaghetti</em> [g].</li>
+      <li><strong>Devant A, O, U ou consonne :</strong> le son est dur. <em class="it">casa</em> [k], <em class="it">gatto</em> [g].</li>
+      <li><strong>Devant E et I :</strong> le son est doux. <em class="it">ciao</em> [tch], <em class="it">gelato</em> [dj].</li>
+      <li><strong>Pour durcir devant E et I :</strong> on ajoute un "H". <em class="it">chiesa</em> [k], <em class="it">spaghetti</em> [g].</li>
     </ul>
     ${renderAlphaGrid()}
   </div>
-  <div class="card">
-    <h3><span class="card-num">2</span>Les groupes de consonnes spécifiques</h3>
-    <ul>
-      <li><strong>GN :</strong> se prononce comme dans "agneau". Ex: <em class="it">gnocchi, bagno</em>.</li>
-      <li><strong>GLI :</strong> se prononce comme le "lli" de "fille" (langue contre le palais). Ex: <em class="it">famiglia, aglio</em>.</li>
-      <li><strong>SCE / SCI :</strong> se prononcent "ché" / "chi". Ex: <em class="it">pesce</em> (poisson), <em class="it">sciare</em> (skier).</li>
-      <li><strong>Les doubles consonnes :</strong> On doit "prolonger" ou marquer un léger arrêt sur la consonne. <em class="it">Penne</em> (pâtes) est très différent de <em class="it">pene</em> (peines).</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3><span class="card-num">3</span>L'accent tonique</h3>
-    <p>Dans 80% des mots italiens, on insiste sur l'avant-dernière syllabe (mots dits <em class="it">piani</em>). Ex: <em class="it">i-ta-LIA-no, ra-GAZ-zo</em>. Si l'accent tombe sur la toute dernière lettre, il y a toujours un accent graphique écrit : <em class="it">città, caffè, virtù</em>.</p>
-  </div>
-  ${renderAlertBox("Piège fréquent", "Toutes les lettres se prononcent en italien ! Par exemple, 'grazie' se prononce [gra-tsi-é], il ne faut surtout pas avaler le 'e' final comme en français.")}
+  ${renderAlertBox("Piège fréquent", "Toutes les lettres se prononcent en italien ! Par exemple, 'grazie' se prononce [gra-tsi-é], on n'avale pas le 'e' final.")}
 `,
-
 'a1-2': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Le genre des noms (Masculin / Féminin)</h3>
+    <h3><span class="card-num">1</span>Le genre des noms</h3>
     <p>Le genre d'un mot se repère généralement à sa dernière voyelle :</p>
     <ul>
-      <li><strong>Terminaison en -O :</strong> Masculin singulier (<em class="it">il ragazzo, il libro</em>). Au pluriel, le -o devient <strong>-I</strong> (<em class="it">i ragazzi</em>).</li>
-      <li><strong>Terminaison en -A :</strong> Féminin singulier (<em class="it">la ragazza, la casa</em>). Au pluriel, le -a devient <strong>-E</strong> (<em class="it">le ragazze</em>).</li>
-      <li><strong>Terminaison en -E :</strong> Peut être masculin (<em class="it">il padre</em>) ou féminin (<em class="it">la madre</em>). Au pluriel, ils finissent tous par <strong>-I</strong> (<em class="it">i padri, le madri</em>).</li>
+      <li><strong>Terminaison -O :</strong> Masculin singulier (<em class="it">il libro</em>). Pluriel en <strong>-I</strong> (<em class="it">i libri</em>).</li>
+      <li><strong>Terminaison -A :</strong> Féminin singulier (<em class="it">la casa</em>). Pluriel en <strong>-E</strong> (<em class="it">le case</em>).</li>
+      <li><strong>Terminaison -E :</strong> Masculin ou Féminin. Pluriel toujours en <strong>-I</strong>.</li>
     </ul>
   </div>
   <div class="card">
@@ -954,107 +951,143 @@ const LESSON_CONTENT = {
     <div class="course-table-wrap"><table class="course-table">
       <thead><tr><th>Type de mot</th><th>Singulier</th><th>Pluriel</th></tr></thead>
       <tbody>
-        <tr><td>Masc. normal (commence par consonne)</td><td>il <em class="it">(il tavolo)</em></td><td>i <em class="it">(i tavoli)</em></td></tr>
-        <tr><td>Masc. spécial (s+cons, z, ps, gn, y)</td><td>lo <em class="it">(lo zio)</em></td><td>gli <em class="it">(gli zii)</em></td></tr>
+        <tr><td>Masc. normal (consonne)</td><td>il <em class="it">(il tavolo)</em></td><td>i <em class="it">(i tavoli)</em></td></tr>
+        <tr><td>Masc. spécial (s+cons, z, gn)</td><td>lo <em class="it">(lo zio)</em></td><td>gli <em class="it">(gli zii)</em></td></tr>
         <tr><td>Masc. commençant par voyelle</td><td>l' <em class="it">(l'albero)</em></td><td>gli <em class="it">(gli alberi)</em></td></tr>
-        <tr><td>Fém. normal (commence par consonne)</td><td>la <em class="it">(la sedia)</em></td><td>le <em class="it">(le sedie)</em></td></tr>
+        <tr><td>Fém. normal (consonne)</td><td>la <em class="it">(la sedia)</em></td><td>le <em class="it">(le sedie)</em></td></tr>
         <tr><td>Fém. commençant par voyelle</td><td>l' <em class="it">(l'isola)</em></td><td>le <em class="it">(le isole)</em></td></tr>
       </tbody>
     </table></div>
   </div>
-  <div class="card">
-    <h3><span class="card-num">3</span>Les Articles Indéfinis (Un, Une, Des)</h3>
-    <div class="course-table-wrap"><table class="course-table">
-      <thead><tr><th>Genre</th><th>Devant Consonne</th><th>Devant Voyelle</th><th>Devant cas spécial (s+cons, z)</th></tr></thead>
-      <tbody>
-        <tr><td>Masculin</td><td>un <em class="it">(un libro)</em></td><td>un <em class="it">(un amico)</em></td><td>uno <em class="it">(uno stadio)</em></td></tr>
-        <tr><td>Féminin</td><td>una <em class="it">(una casa)</em></td><td>un' <em class="it">(un'amica)</em></td><td>una <em class="it">(una studentessa)</em></td></tr>
-      </tbody>
-    </table></div>
-  </div>
-  ${renderAlertBox("Exceptions courantes", "Certains mots d'origine grecque finissent en -MA mais sont masculins : il problema, il cinema, il sistema. Le mot 'mano' finit en -O mais est féminin (la mano).")}
 `,
-
 'a1-3': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Les trois groupes réguliers (-are, -ere, -ire)</h3>
-    <p>L'italien classe ses verbes à l'infinitif en trois groupes. Pour les conjuguer, on retire la terminaison de l'infinitif et on ajoute les terminaisons du présent.</p>
     ${renderConjTable('Verbe', CONJ_PRESENT)}
   </div>
   <div class="card">
     <h3><span class="card-num">2</span>Le piège du troisième groupe (-ire)</h3>
-    <p>Beaucoup de verbes très courants du 3e groupe insèrent <strong>-isc-</strong> entre le radical et la terminaison aux 3 premières personnes du singulier et à la 3e du pluriel. <br>Exemples : <em class="it">capire</em> (comprendre), <em class="it">finire</em> (finir), <em class="it">preferire</em> (préférer), <em class="it">pulire</em> (nettoyer).</p>
+    <p>Certains verbes du 3e groupe insèrent <strong>-isc-</strong> entre le radical et la terminaison (sauf à noi et voi). Exemples : <em class="it">capire</em> (comprendre), <em class="it">finire</em> (finir).</p>
   </div>
-  ${renderAlertBox("Astuce conversation", "En italien, l'usage des pronoms sujets (io, tu, lui...) n'est pas obligatoire car la terminaison du verbe indique déjà qui parle. On dira 'Mangio una pizza' et non 'Io mangio una pizza' (sauf pour insister : 'Moi, je mange une pizza').")}
+  ${renderAlertBox("Astuce conversation", "En italien, l'usage des pronoms sujets (io, tu, lui...) n'est pas obligatoire.")}
 `,
-
 'a1-4': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Conjugaison de Essere (Être) et Avere (Avoir)</h3>
-    <p>Ce sont les auxiliaires, les verbes les plus utilisés de la langue, et ils sont totalement irréguliers.</p>
+    <h3><span class="card-num">1</span>Essere et Avere</h3>
     ${renderConjTable('Verbe', CONJ_ESSERE_AVERE)}
   </div>
   <div class="card">
-    <h3><span class="card-num">2</span>L'utilisation de Avere</h3>
-    <p>L'italien utilise <em class="it">avere</em> (et non essere) pour exprimer un état physique ou l'âge :</p>
-    <ul>
-      <li><em class="it">Avere fame / sete</em> : avoir faim / soif.</li>
-      <li><em class="it">Avere caldo / freddo</em> : avoir chaud / froid (Ex: <em class="it">Ho caldo</em> = J'ai chaud).</li>
-      <li><em class="it">Avere paura / sonno</em> : avoir peur / sommeil.</li>
-      <li><em class="it">Avere ... anni</em> : avoir ... ans (Ex: <em class="it">Quanti anni hai? Ho venti anni.</em>).</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3><span class="card-num">3</span>C'è et Ci sono (Il y a)</h3>
-    <p>Pour exprimer la présence ou l'existence (l'équivalent de "il y a"), l'italien s'accorde au singulier ou au pluriel :</p>
+    <h3><span class="card-num">2</span>C'è et Ci sono (Il y a)</h3>
     <ul>
       <li><strong>C'è</strong> + singulier : <em class="it">C'è un problema</em> (Il y a un problème).</li>
       <li><strong>Ci sono</strong> + pluriel : <em class="it">Ci sono due cani</em> (Il y a deux chiens).</li>
     </ul>
   </div>
-  ${renderAlertBox("À savoir phonétique", "Le verbe avoir (ho, hai, ha, hanno) s'écrit avec un 'H' pour le différencier d'autres mots (o = ou, a = à, anno = année). Ce H est totalement muet.")}
 `,
-
 'a1-5': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Les pronoms sujets</h3>
-    <p><strong>io</strong> (je), <strong>tu</strong> (tu), <strong>lui / lei</strong> (il / elle), <strong>noi</strong> (nous), <strong>voi</strong> (vous pluriel), <strong>loro</strong> (ils / elles).</p>
-  </div>
-  <div class="card">
-    <h3><span class="card-num">2</span>Tu ou Lei ? La règle du vouvoiement</h3>
-    <p>Contrairement au français qui utilise la 2e personne du pluriel ("Vous") pour marquer le respect, <strong>l'italien utilise la 3e personne du singulier féminin : Lei</strong> (littéralement "Elle", même si l'on s'adresse à un homme).</p>
+    <h3><span class="card-num">1</span>Tu ou Lei ? La règle du vouvoiement</h3>
+    <p>Contrairement au français, <strong>l'italien utilise la 3e personne du singulier féminin : Lei</strong> pour vouvoyer une seule personne (homme ou femme).</p>
     <ul>
-      <li><strong>Familier (Tu) :</strong> <em class="it">Di dove sei?</em> (D'où es-tu ?) — <em class="it">Come ti chiami?</em> (Comment t'appelles-tu ?)</li>
-      <li><strong>Formel (Lei) :</strong> <em class="it">Di dov'è Lei?</em> (D'où êtes-vous ?) — <em class="it">Come si chiama?</em> (Comment vous appelez-vous ?)</li>
+      <li><strong>Tu (Familier) :</strong> <em class="it">Come ti chiami?</em> (Comment t'appelles-tu ?)</li>
+      <li><strong>Lei (Formel) :</strong> <em class="it">Come si chiama?</em> (Comment vous appelez-vous ?)</li>
     </ul>
   </div>
-  <div class="card">
-    <h3><span class="card-num">3</span>Salutations formelles et informelles</h3>
-    <ul>
-      <li><strong>Ciao</strong> : Salut / Au revoir. Uniquement avec les amis et la famille.</li>
-      <li><strong>Salve</strong> : Bonjour neutre, parfait quand on hésite entre tu et Lei.</li>
-      <li><strong>Buongiorno / Buonasera</strong> : Bonjour / Bonsoir formel.</li>
-      <li><strong>Arrivederci / Arrivederla</strong> : Au revoir (Arrivederla = très formel).</li>
-    </ul>
-  </div>
-  ${renderAlertBox("À l'écrit", "Le pronom de politesse s'écrit toujours avec une majuscule (Lei, Le, La) pour éviter la confusion avec le pronom féminin 'elle' (lei, le, la).")}
 `,
-
 'a1-6': () => `
   <p class="lesson-intro">Ce lexique de base te permet de te présenter et de survivre dans 80% des conversations simples.</p>
   <div class="card"><h3>Saluti (Salutations)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Salutations'))}</div>
   <div class="card"><h3>La famiglia</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Famille'))}</div>
   <div class="card"><h3>I numeri (Nombres)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Chiffres'))}</div>
-  <div class="card"><h3>I colori</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Couleurs'))}</div>
-  <div class="card"><h3>I giorni e i mesi (Jours et mois)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Jours'))}</div>
 `,
 
-/* ================== STUBS NIVEAU A2 ================== */
-'a2-1': () => `<div class="card"><h3>Passato Prossimo</h3>${renderConjTable('Verbe', CONJ_PASSATO)}</div>`,
-'a2-2': () => `<div class="card"><h3>Imperfetto</h3>${renderConjTable('Verbe', CONJ_IMPERFETTO)}</div>`,
-'a2-3': () => `<div class="card"><h3>Prépositions articulées</h3>${renderPrepTable()}</div>`,
-'a2-4': () => `<div class="card"><h3>Comparatifs et superlatifs</h3><p>Contenu en préparation...</p></div>`,
-'a2-5': () => `<div class="card"><h3>Vocabulaire élargi</h3><p>Contenu en préparation...</p></div>`
+
+/* ================== NIVEAU A2 (ULTRA-COMPLET) ================== */
+
+'a2-1': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Le Passé Composé (Passato Prossimo)</h3>
+    <p>Il se forme exactement comme en français : <strong>Auxiliaire (Essere ou Avere) + Participe passé</strong>.</p>
+    ${renderConjTable('Verbe', CONJ_PASSATO)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Formation du participe passé régulier</h3>
+    <ul>
+      <li>Verbes en <strong>-are</strong> $\\rightarrow$ <strong>-ato</strong> (<em class="it">parlare $\\rightarrow$ parlato</em>)</li>
+      <li>Verbes en <strong>-ere</strong> $\\rightarrow$ <strong>-uto</strong> (<em class="it">vendere $\\rightarrow$ venduto</em>)</li>
+      <li>Verbes en <strong>-ire</strong> $\\rightarrow$ <strong>-ito</strong> (<em class="it">dormire $\\rightarrow$ dormito</em>)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">3</span>Quel auxiliaire choisir ?</h3>
+    <p>La majorité des verbes utilisent <strong>avere</strong> (sans accord). On utilise <strong>essere</strong> (avec accord en genre et nombre avec le sujet) pour :</p>
+    <ul>
+      <li>Les verbes de mouvement (<em class="it">andare, partire, tornare</em>)</li>
+      <li>Les verbes de changement d'état (<em class="it">nascere, morire, diventare</em>)</li>
+      <li>Tous les verbes pronominaux (<em class="it">svegliarsi, lavarsi</em>)</li>
+    </ul>
+  </div>
+  ${renderAlertBox("Participes Irréguliers", "Beaucoup de verbes en -ere sont irréguliers au participe : Fare (fatto), Leggere (letto), Prendere (preso), Scrivere (scritto), Vedere (visto).")}
+`,
+
+'a2-2': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>L'Imparfait (Imperfetto)</h3>
+    <p>L'imparfait sert à décrire des habitudes passées, un décor ou l'âge/la météo dans le passé. Il est très régulier en italien.</p>
+    ${renderConjTable('Verbes Réguliers', CONJ_IMPERFETTO)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Les 4 principaux irréguliers</h3>
+    <p>Ces verbes reprennent leur ancienne racine latine avant d'ajouter les terminaisons régulières.</p>
+    ${renderConjTable('Verbes Irréguliers', CONJ_IMPERFETTO_IRREG)}
+  </div>
+  ${renderAlertBox("Différence cruciale", "Imperfetto = Le décor, l'habitude ('Quand j'étais enfant, je mangeais des pommes'). Passato prossimo = L'action soudaine ou achevée ('Soudain, le téléphone a sonné').")}
+`,
+
+'a2-3': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les Prépositions Articulées</h3>
+    <p>En italien, si une préposition (di, a, da, in, su) est suivie d'un article défini (il, lo, la, i, gli, le), <strong>elle fusionne obligatoirement avec lui</strong> pour ne former qu'un seul mot.</p>
+    ${renderPrepTable()}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Exemples d'utilisation</h3>
+    <ul>
+      <li><em class="it">Il libro del professore</em> (Le livre du professeur - di + il)</li>
+      <li><em class="it">Vado al cinema</em> (Je vais au cinéma - a + il)</li>
+      <li><em class="it">Vivo negli Stati Uniti</em> (Je vis aux États-Unis - in + gli)</li>
+      <li><em class="it">Il gatto è sul tavolo</em> (Le chat est sur la table - su + il)</li>
+    </ul>
+  </div>
+  ${renderAlertBox("Exceptions", "Les prépositions 'con' (avec), 'per' (pour), et 'tra/fra' (entre) ne se contractent presque jamais, on les laisse séparées : 'con il', 'per la'.")}
+`,
+
+'a2-4': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Le Comparatif</h3>
+    <ul>
+      <li><strong>Supériorité :</strong> Più ... di / che (<em class="it">Marco è più alto di me</em>)</li>
+      <li><strong>Infériorité :</strong> Meno ... di / che (<em class="it">Roma è meno fredda di Milano</em>)</li>
+      <li><strong>Égalité :</strong> (Così) ... come / (Tanto) ... quanto (<em class="it">Sei (così) bello come il sole</em>)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Di ou Che ?</h3>
+    <p>On utilise <strong>DI</strong> pour comparer deux noms, pronoms ou quantités (<em class="it">Luigi è più alto di Marco</em>). On utilise <strong>CHE</strong> pour comparer deux adjectifs ou deux verbes (<em class="it">È più bello che intelligente</em>).</p>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">3</span>Le Superlatif Absolu (Très...)</h3>
+    <p>On enlève la dernière voyelle de l'adjectif et on ajoute <strong>-issimo/a/i/e</strong>.</p>
+    <p>Bello $\\rightarrow$ <em class="it">Bellissimo</em> (Magnifique). Buono $\\rightarrow$ <em class="it">Buonissimo</em> (Délicieux).</p>
+  </div>
+`,
+
+'a2-5': () => `
+  <p class="lesson-intro">Enrichis ton vocabulaire avec les thèmes essentiels du quotidien et des voyages.</p>
+  <div class="card"><h3>Nourriture (Il cibo)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Nourriture'))}</div>
+  <div class="card"><h3>Voyages (I viaggi)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Voyages'))}</div>
+  <div class="card"><h3>Météo (Il tempo)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Météo'))}</div>
+`
 };
 
 /* ================================================================
