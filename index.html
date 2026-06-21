@@ -489,17 +489,34 @@ const FALSE_FRIENDS = [
 const ALL_LESSON_IDS = LEVELS.reduce((acc, lv) => acc.concat(lv.lessons.map(l => l.id)), []);
 const TOTAL_LESSONS = ALL_LESSON_IDS.length;
 
-const state = {
-  completedLessons: new Set(['a1-1','a1-2']),
+const defaultState = {
+  completedLessons: ['a1-1', 'a1-2'],
   xp: 140,
   streak: 5,
   streakDays: [1,1,1,1,1,0,0],
-  currentLesson: null,
-  openLevels: new Set(['A1']),
+  openLevels: ['A1'],
   darkMode: false,
   audioSpeed: 1,
   sidebarCollapsed: false
 };
+
+const savedState = JSON.parse(localStorage.getItem('italiano_app_state')) || defaultState;
+
+const state = {
+  ...savedState,
+  completedLessons: new Set(savedState.completedLessons),
+  openLevels: new Set(savedState.openLevels),
+  currentLesson: null
+};
+
+function saveLocalState() {
+  const stateToSave = {
+    ...state,
+    completedLessons: Array.from(state.completedLessons),
+    openLevels: Array.from(state.openLevels)
+  };
+  localStorage.setItem('italiano_app_state', JSON.stringify(stateToSave));
+}
 
 function lessonsCompletedInLevel(level) { return level.lessons.filter(l => state.completedLessons.has(l.id)).length; }
 function overallProgress() { return Math.round((state.completedLessons.size / TOTAL_LESSONS) * 100); }
@@ -512,6 +529,7 @@ function markComplete(lessonId){
     showToast('✓', 'Leçon terminée · +25 XP');
     updateTopbarStats();
     buildSidebar();
+   saveLocalState();
   }
 }
 
@@ -822,6 +840,7 @@ function toggleDarkMode(btn){
   state.darkMode = !state.darkMode;
   if(btn) btn.classList.toggle('on');
   document.documentElement.classList.toggle('dark', state.darkMode);
+  saveLocalState();
 }
 
 /* ================================================================
