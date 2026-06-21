@@ -310,7 +310,6 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 <div class="bg-ornament" id="bgOrnament"></div>
 <div id="leafContainer"></div>
 <div class="app-shell">
-  <!-- Le voile flouté est maintenant à l'intérieur de l'app-shell, juste avant la sidebar -->
   <div class="sidebar-scrim" id="sidebarScrim" onclick="closeMobileSidebar()"></div>
   
   <aside class="sidebar" id="sidebar">
@@ -501,7 +500,14 @@ const defaultState = {
   sidebarCollapsed: false
 };
 
-const savedState = JSON.parse(localStorage.getItem('italiano_app_state')) || defaultState;
+// Bloc Try-Catch ajouté pour éviter tout plantage du LocalStorage
+let savedState;
+try {
+  savedState = JSON.parse(localStorage.getItem('italiano_app_state')) || defaultState;
+  if (!Array.isArray(savedState.completedLessons)) savedState = defaultState;
+} catch(e) {
+  savedState = defaultState;
+}
 
 const state = {
   ...savedState,
@@ -530,7 +536,7 @@ function markComplete(lessonId){
     showToast('✓', 'Leçon terminée · +25 XP');
     updateTopbarStats();
     buildSidebar();
-   saveLocalState();
+    saveLocalState();
   }
 }
 
@@ -849,22 +855,23 @@ function toggleDarkMode(btn){
    ================================================================ */
 function renderLesson(area, lessonId){
   let meta = null;
-  let idxInLevel = 0;
   for(const level of LEVELS){
     const l = level.lessons.find(x => x.id === lessonId);
     if(l) { meta = {level, lesson:l}; break; }
-    idxInLevel++;
   }
   if(!meta) return;
 
   const bodyHtml = LESSON_CONTENT[lessonId] ? LESSON_CONTENT[lessonId]() : '<p>En préparation</p>';
+  const isDone = state.completedLessons.has(lessonId);
   
   area.innerHTML = `
     <div class="lesson-breadcrumb">${meta.level.id} · ${meta.level.name}</div>
     <h1 style="font-size:30px; margin-bottom:10px;">${meta.lesson.icon} ${meta.lesson.title}</h1>
     ${bodyHtml}
     <div style="display:flex; justify-content:center; margin:30px 0;">
-      <button class="complete-btn" onclick="markComplete('${lessonId}')">Marquer comme terminée</button>
+      <button class="complete-btn" ${isDone ? 'disabled' : ''} onclick="markComplete('${lessonId}'); loadContent('lesson', '${lessonId}')">
+        ${isDone ? '✓ Leçon terminée' : 'Marquer comme terminée'}
+      </button>
     </div>
   `;
 }
@@ -877,7 +884,7 @@ const LESSON_CONTENT = {
     <p>L'italien se prononce presque comme il s'écrit. Clique sur chaque carte pour écouter la prononciation correcte.</p>
     ${renderAlphaGrid()}
   </div>
-  ${renderAlertBox('Piège fréquent', 'Contrairement au français, presque toutes les lettres se prononcent en italien : il n\\'y a pas de lettres muettes en fin de mot (sauf le "h").')}
+  ${renderAlertBox("Piège fréquent", "Contrairement au français, presque toutes les lettres se prononcent en italien : il n'y a pas de lettres muettes en fin de mot (sauf le 'h').")}
 `,
 'a1-2': () => `
   <div class="card">
@@ -906,7 +913,7 @@ const LESSON_CONTENT = {
       </tbody>
     </table></div>
   </div>
-  ${renderAlertBox('Faux-ami', '"Libreria" ne signifie pas "librairie" mais "bibliothèque" ou "étagère". Une librairie se dit "negozio di libri".')}
+  ${renderAlertBox("Faux-ami", "\"Libreria\" ne signifie pas \"librairie\" mais \"bibliothèque\" ou \"étagère\". Une librairie se dit \"negozio di libri\".")}
 `,
 'a1-3': () => `
   <div class="card">
@@ -914,7 +921,7 @@ const LESSON_CONTENT = {
     <p>Les verbes réguliers se terminent en <strong>-are</strong> (1er groupe, le plus fréquent), <strong>-ere</strong> (2e groupe) ou <strong>-ire</strong> (3e groupe).</p>
     ${renderConjTable('Verbe', CONJ_PRESENT)}
   </div>
-  ${renderAlertBox('Astuce', 'Le pronom sujet (io, tu, lui...) est souvent omis car la terminaison du verbe indique déjà la personne : "Parlo italiano" suffit, pas besoin de dire "io parlo".')}
+  ${renderAlertBox("Astuce", "Le pronom sujet (io, tu, lui...) est souvent omis car la terminaison du verbe indique déjà la personne : \"Parlo italiano\" suffit, pas besoin de dire \"io parlo\".")}
 `,
 'a1-4': () => `
   <div class="card">
@@ -931,7 +938,7 @@ const LESSON_CONTENT = {
       <li><em class="it">avere ragione / avere torto</em> — avoir raison / avoir tort</li>
     </ul>
   </div>
-  ${renderAlertBox('Attention', 'On dit "ho 20 anni" (j\\'ai 20 ans) et non "sono 20 anni". L\\'âge se construit toujours avec avere.')}
+  ${renderAlertBox("Attention", "On dit \"ho 20 anni\" (j'ai 20 ans) et non \"sono 20 anni\". L'âge se construit toujours avec avere.")}
 `,
 'a1-5': () => `
   <div class="card">
@@ -942,7 +949,7 @@ const LESSON_CONTENT = {
     <h3><span class="card-num">2</span>Le vouvoiement de politesse (Lei)</h3>
     <p>Contrairement au français qui utilise la 2e personne du pluriel (Vous), l'italien utilise la 3e personne du singulier pour vouvoyer une personne : <em class="it">Lei è italiano?</em> (Êtes-vous italien ?).</p>
   </div>
-  ${renderAlertBox('À savoir', 'Le "Lei" de politesse s\\'écrit toujours avec une majuscule pour le distinguer du "lei" minuscule qui signifie "elle".')}
+  ${renderAlertBox("À savoir", "Le \"Lei\" de politesse s'écrit toujours avec une majuscule pour le distinguer du \"lei\" minuscule qui signifie \"elle\".")}
 `,
 'a1-6': () => `
   <div class="card"><h3>La famiglia</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Famille'))}</div>
@@ -958,7 +965,7 @@ const LESSON_CONTENT = {
     <p>La majorité des verbes utilisent <em class="it">avere</em>. Les verbes de mouvement, d'état et les verbes pronominaux utilisent <em class="it">essere</em>.</p>
     ${renderConjTable('Verbe', CONJ_PASSATO)}
   </div>
-  ${renderAlertBox('Règle d\\'or', 'Avec l\\'auxiliaire "essere", le participe passé s\\'accorde en genre et en nombre avec le sujet : "Maria è andata" (fém. sing.), "I ragazzi sono andati" (masc. plur.). Avec "avere", pas d\\'accord.')}
+  ${renderAlertBox("Règle d'or", "Avec l'auxiliaire \"essere\", le participe passé s'accorde en genre et en nombre avec le sujet : \"Maria è andata\" (fém. sing.), \"I ragazzi sono andati\" (masc. plur.). Avec \"avere\", pas d'accord.")}
 `,
 'a2-2': () => `
   <div class="card">
@@ -969,7 +976,7 @@ const LESSON_CONTENT = {
     <h3><span class="card-num">2</span>Imperfetto vs Passato prossimo</h3>
     <p>L'<strong>imperfetto</strong> décrit le décor, les habitudes ("quand j'étais enfant..."). Le <strong>passato prossimo</strong> marque une action ponctuelle et terminée.</p>
   </div>
-  ${renderAlertBox('Exemple', 'Les deux temps se mélangent souvent : "Mentre dormivo (imparfait, état), è suonato il telefono (passé composé, action ponctuelle)".')}
+  ${renderAlertBox("Exemple", "Les deux temps se mélangent souvent : \"Mentre dormivo (imparfait, état), è suonato il telefono (passé composé, action ponctuelle)\".")}
 `,
 'a2-3': () => `
   <div class="card">
@@ -977,7 +984,7 @@ const LESSON_CONTENT = {
     <p>Les prépositions (di, a, da, in, su) fusionnent obligatoirement avec l'article défini qui les suit.</p>
     ${renderPrepTable()}
   </div>
-  ${renderAlertBox('Attention', 'La contraction est obligatoire en italien. On ne dit jamais "in il cinema" mais "nel cinema".')}
+  ${renderAlertBox("Attention", "La contraction est obligatoire en italien. On ne dit jamais \"in il cinema\" mais \"nel cinema\".")}
 `,
 'a2-4': () => `
   <div class="card">
