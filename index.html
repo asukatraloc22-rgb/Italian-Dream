@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Italiano · Apprendre l'italien</title>
 
-<!-- Icône de l'application (Favicon en SVG intégré, pas de fichier externe requis) -->
+<!-- Icône de l'application (Favicon en SVG intégré) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23136338%22/><text x=%2250%22 y=%2270%22 font-family=%22serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>I</text></svg>">
 
 <!-- Optimisations Mobile (PWA) -->
@@ -15,6 +15,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Italiano">
 <meta name="mobile-web-app-capable" content="yes">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -178,21 +179,6 @@ html.dark .fixed-nav-item.active{background:var(--oro-500); color:#1c1813;}
 .metric-icon{font-size:20px; margin-bottom:10px;}
 .metric-val{font-family:var(--font-display); font-size:27px; font-weight:700; color:var(--text-primary);}
 .metric-lbl{font-size:12.5px; color:var(--text-secondary); margin-top:3px; font-weight:500;}
-.section-heading{display:flex; align-items:baseline; gap:12px; margin:36px 0 16px;}
-.section-heading h2{font-size:21px;}
-.section-heading .rule{flex:1; height:1px; background:var(--border-soft);}
-.level-cards-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px;}
-.level-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-card); position:relative; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s; cursor:pointer;}
-.level-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-elevated);}
-.level-card::before{content:''; position:absolute; top:0; left:0; width:5px; height:100%;}
-.level-card.la::before{background:linear-gradient(var(--verde-600), var(--verde-800));}
-.level-card.lb::before{background:linear-gradient(var(--oro-500), var(--oro-600));}
-.level-card.lc::before{background:linear-gradient(var(--rosso-600), var(--rosso-800));}
-.level-card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;}
-.level-card-title{font-size:17px;}
-.level-card-sub{font-size:12px; color:var(--text-muted); margin-top:2px;}
-.level-card-prog{height:5px; background:var(--avorio-200); border-radius:4px; overflow:hidden; margin-top:14px;}
-.level-card-prog-fill{height:100%; border-radius:4px;}
 
 /* Cards & Content */
 .lesson-breadcrumb{font-size:12.5px; color:var(--text-muted); margin-bottom:6px; display:flex; gap:6px; align-items:center;}
@@ -237,11 +223,7 @@ html.dark .vocab-card .vc-it{color:#9bdfb8;}
 .alpha-letter{font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--rosso-700);}
 html.dark .alpha-letter{color:#e0939c;}
 .alpha-sound{font-size:11px; color:var(--text-muted); margin-top:4px; font-family:monospace;}
-.lesson-nav-footer{display:flex; justify-content:space-between; gap:14px; margin-top:32px; padding-top:22px; border-top:1px solid var(--border-soft);}
-.lesson-nav-btn{display:flex; flex-direction:column; gap:4px; padding:13px 20px; border-radius:var(--radius-md); border:1px solid var(--border-soft); background:var(--bg-card); transition:all 0.18s; max-width:46%; cursor:pointer;}
-.lesson-nav-btn:hover{border-color:var(--oro-500);}
-.lesson-nav-btn .lbl{font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;}
-.lesson-nav-btn .ttl{font-size:14px; font-weight:600; color:var(--text-primary);}
+
 .complete-btn{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; background:linear-gradient(135deg, var(--verde-600), var(--verde-700)); color:#fff; border:none; font-weight:700; font-size:14px; box-shadow:0 6px 16px rgba(19,99,56,0.3); transition:transform 0.18s; cursor:pointer;}
 .complete-btn:hover{transform:translateY(-2px);}
 .complete-btn:disabled{opacity:0.55; cursor:default; transform:none;}
@@ -282,14 +264,6 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 .exam-start-btn:disabled{background:var(--avorio-200); color:var(--text-muted); cursor:not-allowed;}
 
 /* Progress & Settings */
-.streak-cal{display:grid; grid-template-columns:repeat(7,1fr); gap:6px;}
-.streak-cell{aspect-ratio:1; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:var(--text-muted); background:var(--avorio-200);}
-.streak-cell.active{background:linear-gradient(135deg, var(--verde-500), var(--verde-700)); color:#fff;}
-.badge-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); gap:14px;}
-.badge-item{text-align:center; padding:16px 8px; border-radius:var(--radius-md); background:var(--bg-elevated); border:1px solid var(--border-soft);}
-.badge-item.locked{opacity:0.35; filter:grayscale(1);}
-.badge-icon{font-size:30px; margin-bottom:8px;}
-.badge-name{font-size:12px; font-weight:600;}
 .settings-row{display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--border-soft);}
 .settings-row:last-child{border-bottom:none;}
 .settings-label{font-size:14.5px; font-weight:600; color:var(--text-primary);}
@@ -298,7 +272,6 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 .toggle-switch.on{background:var(--verde-600);}
 .toggle-switch::after{content:''; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);}
 .toggle-switch.on::after{transform:translateX(20px);}
-.select-control{padding:9px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-mid); background:var(--bg-elevated); color:var(--text-primary); font-size:13.5px; font-weight:600;}
 
 /* Toast */
 .toast{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); z-index:200; background:var(--inchiostro-900); color:#fdfbf6; padding:13px 24px; border-radius:999px; font-size:13.5px; font-weight:600; box-shadow:var(--shadow-elevated); opacity:0; transition:all 0.3s; display:flex; align-items:center; gap:10px; pointer-events:none;}
@@ -308,7 +281,6 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 <body>
 
 <div class="bg-ornament" id="bgOrnament"></div>
-<div id="leafContainer"></div>
 <div class="app-shell">
   <div class="sidebar-scrim" id="sidebarScrim" onclick="closeMobileSidebar()"></div>
   
@@ -350,9 +322,6 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 </div>
 
 <script>
-/* ================================================================
-   DATA LAYER
-   ================================================================ */
 const LEVELS = [
   { id:'A1', name:'Fondations', cls:'la', desc:'Premiers pas en italien',
     lessons:[
@@ -414,14 +383,12 @@ const ALPHABET = [
 ];
 
 const VOCAB_ALL = [
-  /* Famille */
   {it:'la madre', fr:'la mère', cat:'Famille'}, {it:'il padre', fr:'le père', cat:'Famille'},
   {it:'il fratello', fr:'le frère', cat:'Famille'}, {it:'la sorella', fr:'la sœur', cat:'Famille'},
   {it:'i nonni', fr:'les grands-parents', cat:'Famille'}, {it:'lo zio', fr:'l\'oncle', cat:'Famille'},
   {it:'la zia', fr:'la tante', cat:'Famille'}, {it:'il cugino', fr:'le cousin', cat:'Famille'},
   {it:'il marito', fr:'le mari', cat:'Famille'}, {it:'la moglie', fr:'la femme', cat:'Famille'},
   
-  /* Chiffres */
   {it:'zero', fr:'zéro', cat:'Chiffres'}, {it:'uno', fr:'un', cat:'Chiffres'}, 
   {it:'due', fr:'deux', cat:'Chiffres'}, {it:'tre', fr:'trois', cat:'Chiffres'},
   {it:'quattro', fr:'quatre', cat:'Chiffres'}, {it:'cinque', fr:'cinq', cat:'Chiffres'},
@@ -430,25 +397,21 @@ const VOCAB_ALL = [
   {it:'dieci', fr:'dix', cat:'Chiffres'}, {it:'venti', fr:'vingt', cat:'Chiffres'},
   {it:'cento', fr:'cent', cat:'Chiffres'}, {it:'mille', fr:'mille', cat:'Chiffres'},
   
-  /* Couleurs */
   {it:'rosso', fr:'rouge', cat:'Couleurs'}, {it:'verde', fr:'vert', cat:'Couleurs'},
   {it:'blu', fr:'bleu foncé', cat:'Couleurs'}, {it:'azzurro', fr:'bleu clair', cat:'Couleurs'},
   {it:'giallo', fr:'jaune', cat:'Couleurs'}, {it:'nero', fr:'noir', cat:'Couleurs'},
   {it:'bianco', fr:'blanc', cat:'Couleurs'}, {it:'grigio', fr:'gris', cat:'Couleurs'},
   
-  /* Jours */
   {it:'lunedì', fr:'lundi', cat:'Jours'}, {it:'martedì', fr:'mardi', cat:'Jours'},
   {it:'mercoledì', fr:'mercredi', cat:'Jours'}, {it:'giovedì', fr:'jeudi', cat:'Jours'},
   {it:'venerdì', fr:'vendredi', cat:'Jours'}, {it:'sabato', fr:'samedi', cat:'Jours'},
   {it:'domenica', fr:'dimanche', cat:'Jours'},
   
-  /* Salutations */
   {it:'buongiorno', fr:'bonjour', cat:'Salutations'}, {it:'buonasera', fr:'bonsoir', cat:'Salutations'},
   {it:'ciao', fr:'salut', cat:'Salutations'}, {it:'arrivederci', fr:'au revoir', cat:'Salutations'},
   {it:'grazie', fr:'merci', cat:'Salutations'}, {it:'prego', fr:'je t\'en prie', cat:'Salutations'},
   {it:'scusa', fr:'pardon (tu)', cat:'Salutations'}, {it:'scusi', fr:'pardon (Lei)', cat:'Salutations'},
 
-  /* Nourriture (Enrichi A2) */
   {it:'il pane', fr:'le pain', cat:'Nourriture'}, {it:'la pasta', fr:'les pâtes', cat:'Nourriture'},
   {it:'il formaggio', fr:'le fromage', cat:'Nourriture'}, {it:'il pomodoro', fr:'la tomate', cat:'Nourriture'},
   {it:'la carne', fr:'la viande', cat:'Nourriture'}, {it:'il pesce', fr:'le poisson', cat:'Nourriture'},
@@ -456,23 +419,18 @@ const VOCAB_ALL = [
   {it:'la colazione', fr:'le petit-déjeuner', cat:'Nourriture'}, {it:'il pranzo', fr:'le déjeuner', cat:'Nourriture'},
   {it:'la cena', fr:'le dîner', cat:'Nourriture'}, {it:'il dolce', fr:'le dessert', cat:'Nourriture'},
 
-  /* Voyages (Enrichi A2) */
   {it:'il treno', fr:'le train', cat:'Voyages'}, {it:'il biglietto', fr:'le billet', cat:'Voyages'},
-  {it:'la stazione', fr:'la gare', cat:'Voyages'}, {it:'il binario', fr:'la voie (quai)', cat:'Voyages'},
+  {it:'la stazione', fr:'la gare', cat:'Voyages'}, {it:'il binario', fr:'la voie', cat:'Voyages'},
   {it:'l\'aeroporto', fr:'l\'aéroport', cat:'Voyages'}, {it:'il volo', fr:'le vol', cat:'Voyages'},
   {it:'la valigia', fr:'la valise', cat:'Voyages'}, {it:'il passaporto', fr:'le passeport', cat:'Voyages'},
   {it:'l\'albergo', fr:'l\'hôtel', cat:'Voyages'}, {it:'la camera doppia', fr:'la chambre double', cat:'Voyages'},
 
-  /* Météo (Enrichi A2) */
-  {it:'il sole', fr:'le sole', cat:'Météo'}, {it:'la pioggia', fr:'la pioggia', cat:'Météo'},
+  {it:'il sole', fr:'le soleil', cat:'Météo'}, {it:'la pioggia', fr:'la pluie', cat:'Météo'},
   {it:'fa caldo', fr:'il fait chaud', cat:'Météo'}, {it:'fa freddo', fr:'il fait froid', cat:'Météo'},
   {it:'piove', fr:'il pleut', cat:'Météo'}, {it:'nevica', fr:'il neige', cat:'Météo'},
   {it:'c\'è vento', fr:'il y a du vent', cat:'Météo'}, {it:'le nuvole', fr:'les nuages', cat:'Météo'}
 ];
 
-/* ================================================================
-   GRAMMAR TABLES
-   ================================================================ */
 const CONJ_PRESENT = {
   '-are (parlare)':['parlo','parli','parla','parliamo','parlate','parlano'],
   '-ere (vedere)':['vedo','vedi','vede','vediamo','vedete','vedono'],
@@ -512,7 +470,7 @@ const PREPOSIZIONI_ARTICOLATE = {
   rows:[
     ['di (de)', 'del','dello','della','dell\'','dei','degli','delle'],
     ['a (à)', 'al','allo','alla','all\'','ai','agli','alle'],
-    ['da (de/chez)', 'dal','dallo','dalla','dall\'','dai','dagli','dalle'],
+    ['da (chez)', 'dal','dallo','dalla','dall\'','dai','dagli','dalle'],
     ['in (dans)', 'nel','nello','nella','nell\'','nei','negli','nelle'],
     ['su (sur)', 'sul','sullo','sulla','sull\'','sui','sugli','sulle']
   ]
@@ -525,18 +483,15 @@ const EXAMS = [
   {id:'ex-b2', level:'B2', cert:'CELI 3', duration:'150 min', parts:'4 épreuves + orale', unlockAt:15}
 ];
 
-/* ================================================================
-   STATE MANAGEMENT
-   ================================================================ */
 const ALL_LESSON_IDS = LEVELS.reduce((acc, lv) => acc.concat(lv.lessons.map(l => l.id)), []);
 const TOTAL_LESSONS = ALL_LESSON_IDS.length;
 
 const defaultState = {
-  completedLessons: ['a1-1', 'a1-2'],
-  xp: 140,
-  streak: 5,
-  streakDays: [1,1,1,1,1,0,0],
-  openLevels: ['A1', 'A2'],
+  completedLessons: [],
+  xp: 0,
+  streak: 1,
+  streakDays: [0,0,0,0,0,0,1],
+  openLevels: ['A1'],
   darkMode: false,
   audioSpeed: 1,
   sidebarCollapsed: false
@@ -568,7 +523,7 @@ function saveLocalState() {
 
 function lessonsCompletedInLevel(level) { return level.lessons.filter(l => state.completedLessons.has(l.id)).length; }
 function overallProgress() { return Math.round((state.completedLessons.size / TOTAL_LESSONS) * 100); }
-function wordsLearnedCount() { return Math.min(VOCAB_ALL.length, state.completedLessons.size * 9 + 14); }
+function wordsLearnedCount() { return Math.min(VOCAB_ALL.length, state.completedLessons.size * 9); }
 
 function markComplete(lessonId){
   if(!state.completedLessons.has(lessonId)){
@@ -599,9 +554,6 @@ function updateTopbarStats(){
   document.getElementById('xpStat').textContent = state.xp + ' XP';
 }
 
-/* ================================================================
-   VISUALS
-   ================================================================ */
 function renderLogo(){
   document.getElementById('logoMark').innerHTML = `
   <svg viewBox="0 0 48 48" width="42" height="42">
@@ -630,9 +582,6 @@ function renderBackgroundOrnaments(){
   </svg>`;
 }
 
-/* ================================================================
-   SIDEBAR
-   ================================================================ */
 function buildSidebar(){
   const nav = document.getElementById('sidebarScroll');
   let html = '';
@@ -703,9 +652,6 @@ function setActiveFixedNav(id){
   if(target) target.classList.add('active');
 }
 
-/* ================================================================
-   HELPERS
-   ================================================================ */
 function safeEscape(str) {
   return str.replace(/'/g, "&apos;");
 }
@@ -754,9 +700,6 @@ function speakItalian(text){
   speechSynthesis.cancel(); speechSynthesis.speak(utter);
 }
 
-/* ================================================================
-   ROUTER
-   ================================================================ */
 function loadContent(id, param){
   closeMobileSidebar();
   const area = document.getElementById('contentArea');
@@ -777,16 +720,13 @@ function setEyebrow(eyebrow, title){
   document.getElementById('pageTitle').textContent = title;
 }
 
-/* ================================================================
-   PAGES
-   ================================================================ */
 function renderHome(area){
   area.innerHTML = `
     <div class="hero-banner">
       <div class="hero-eyebrow">Buongiorno e benvenuto</div>
       <h1 class="hero-title">Apprends l'italien pas à pas, con piacere.</h1>
       <p class="hero-text">Poursuis ton apprentissage. Tes leçons et ta progression sont sauvegardées automatiquement.</p>
-      <button class="hero-cta" onclick="loadContent('lesson', 'a1-1')">Continuer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="hero-cta" onclick="loadContent('lesson', 'a1-1')">Commencer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
     <div class="dash-grid">
       <div class="metric-card"><div class="metric-icon">🔥</div><div class="metric-val">${state.streak}</div><div class="metric-lbl">Jours</div></div>
@@ -894,9 +834,6 @@ function toggleDarkMode(btn){
   saveLocalState();
 }
 
-/* ================================================================
-   LESSONS CONTENT (A1 + A2 COMPLET)
-   ================================================================ */
 function renderLesson(area, lessonId){
   let meta = null;
   for(const level of LEVELS){
@@ -922,7 +859,6 @@ function renderLesson(area, lessonId){
 
 const LESSON_CONTENT = {
 
-/* ================== NIVEAU A1 ================== */
 'a1-1': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Les consonnes dures et douces (C et G)</h3>
@@ -1000,9 +936,6 @@ const LESSON_CONTENT = {
   <div class="card"><h3>La famiglia</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Famille'))}</div>
   <div class="card"><h3>I numeri (Nombres)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Chiffres'))}</div>
 `,
-
-
-/* ================== NIVEAU A2 (ULTRA-COMPLET) ================== */
 
 'a2-1': () => `
   <div class="card">
@@ -1090,9 +1023,6 @@ const LESSON_CONTENT = {
 `
 };
 
-/* ================================================================
-   INIT
-   ================================================================ */
 window.addEventListener('load', () => {
   renderLogo();
   renderBackgroundOrnaments();
