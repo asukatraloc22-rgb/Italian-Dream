@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Italiano · Apprendre l'italien</title>
 
-<!-- Icône de l'application (Favicon en SVG intégré) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23136338%22/><text x=%2250%22 y=%2270%22 font-family=%22serif%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>I</text></svg>">
 
-<!-- Optimisations Mobile (PWA) -->
 <meta name="theme-color" content="#fdfbf6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,89 +27,57 @@
   --avorio-50:#fdfbf6; --avorio-100:#f8f3e8; --avorio-200:#f0e7d3; --avorio-300:#e4d6b8;
   --oro-400:#caa45e; --oro-500:#b8923f; --oro-600:#9c7a30; --oro-glow:#e8c878;
   --inchiostro-900:#1c1813; --inchiostro-700:#3a342b; --inchiostro-500:#5e564a; --inchiostro-300:#8a8072;
-
-  --font-display:'Fraunces', serif;
-  --font-serif-it:'Cormorant Garamond', serif;
-  --font-body:'Inter', sans-serif;
-
-  --bg-app:var(--avorio-50);
-  --bg-panel:#ffffff;
-  --bg-sidebar:#fffefb;
-  --bg-card:#ffffff;
-  --bg-elevated:#ffffff;
-  --text-primary:var(--inchiostro-900);
-  --text-secondary:var(--inchiostro-500);
-  --text-muted:var(--inchiostro-300);
-  --border-soft:rgba(28,24,19,0.09);
-  --border-mid:rgba(28,24,19,0.14);
+  --font-display:'Fraunces', serif; --font-serif-it:'Cormorant Garamond', serif; --font-body:'Inter', sans-serif;
+  --bg-app:var(--avorio-50); --bg-panel:#ffffff; --bg-sidebar:#fffefb; --bg-card:#ffffff; --bg-elevated:#ffffff;
+  --text-primary:var(--inchiostro-900); --text-secondary:var(--inchiostro-500); --text-muted:var(--inchiostro-300);
+  --border-soft:rgba(28,24,19,0.09); --border-mid:rgba(28,24,19,0.14);
   --shadow-card:0 1px 2px rgba(28,24,19,0.04), 0 6px 18px rgba(28,24,19,0.06);
   --shadow-elevated:0 4px 12px rgba(28,24,19,0.07), 0 16px 40px rgba(28,24,19,0.10);
-  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:22px;
-  --sidebar-w:300px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:22px; --sidebar-w:300px;
 }
-
 html.dark{
   --bg-app:#100f0d; --bg-panel:#171411; --bg-sidebar:#15120f; --bg-card:#1c1814; --bg-elevated:#221d18;
   --text-primary:#f3ece0; --text-secondary:#c9bda9; --text-muted:#8a7d68;
   --border-soft:rgba(243,236,224,0.08); --border-mid:rgba(243,236,224,0.14);
   --shadow-card:0 1px 2px rgba(0,0,0,0.3), 0 6px 18px rgba(0,0,0,0.35);
   --shadow-elevated:0 4px 14px rgba(0,0,0,0.4), 0 20px 48px rgba(0,0,0,0.5);
-  --verde-100:#173823; --verde-50:#12241a; --rosso-100:#3a161a; --rosso-50:#241012;
-  --avorio-100:#241f18; --avorio-200:#2c261d;
+  --verde-100:#173823; --verde-50:#12241a; --rosso-100:#3a161a; --rosso-50:#241012; --avorio-100:#241f18; --avorio-200:#2c261d;
 }
-
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
+*{box-sizing:border-box;} html,body{margin:0;padding:0;}
 body{font-family:var(--font-body); background:var(--bg-app); color:var(--text-primary); -webkit-font-smoothing:antialiased; overflow-x:hidden;}
-h1,h2,h3,h4{font-family:var(--font-display); font-weight:600; margin:0; color:var(--text-primary);}
-p{margin:0;}
-button{font-family:var(--font-body); cursor:pointer;}
-a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display); font-weight:600; margin:0; color:var(--text-primary);} p{margin:0;}
+button{font-family:var(--font-body); cursor:pointer;} a{color:inherit;}
 ::selection{background:var(--oro-glow); color:var(--inchiostro-900);}
-::-webkit-scrollbar{width:8px; height:8px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:var(--border-mid); border-radius:8px;}
-::-webkit-scrollbar-thumb:hover{background:var(--oro-500);}
-
-/* Background */
+::-webkit-scrollbar{width:8px; height:8px;} ::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border-mid); border-radius:8px;} ::-webkit-scrollbar-thumb:hover{background:var(--oro-500);}
 .bg-ornament{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;}
-.bg-ornament svg{position:absolute; opacity:0.045;}
-html.dark .bg-ornament svg{opacity:0.07;}
-.leaf-fall{position:fixed; top:-40px; pointer-events:none; z-index:1; opacity:0.5; will-change:transform;}
-html.dark .leaf-fall{opacity:0.35;}
+.bg-ornament svg{position:absolute; opacity:0.045;} html.dark .bg-ornament svg{opacity:0.07;}
+.leaf-fall{position:fixed; top:-40px; pointer-events:none; z-index:1; opacity:0.5; will-change:transform;} html.dark .leaf-fall{opacity:0.35;}
 
 /* Layout */
 .app-shell{position:relative; z-index:2; display:flex; min-height:100vh; width:100%;}
 .sidebar{width:var(--sidebar-w); flex-shrink:0; background:var(--bg-sidebar); border-right:1px solid var(--border-soft); display:flex; flex-direction:column; height:100vh; position:sticky; top:0; transition:width 0.32s cubic-bezier(.4,0,.2,1), margin-left 0.32s cubic-bezier(.4,0,.2,1); z-index:40;}
 .sidebar.collapsed{width:76px;}
 .sidebar-head{display:flex; align-items:center; gap:12px; padding:22px 20px 18px; border-bottom:1px solid var(--border-soft); flex-shrink:0; min-height:84px;}
-.logo-mark{width:42px; height:42px; flex-shrink:0;}
-.brand-text{overflow:hidden; white-space:nowrap; transition:opacity 0.2s;}
+.logo-mark{width:42px; height:42px; flex-shrink:0;} .brand-text{overflow:hidden; white-space:nowrap; transition:opacity 0.2s;}
 .sidebar.collapsed .brand-text{opacity:0; width:0;}
 .brand-title{font-family:var(--font-display); font-size:21px; font-weight:600; letter-spacing:0.2px; color:var(--text-primary); line-height:1.1;}
-.brand-sub{font-family:var(--font-serif-it); font-style:italic; font-size:12.5px; color:var(--oro-600); margin-top:2px;}
-html.dark .brand-sub{color:var(--oro-400);}
+.brand-sub{font-family:var(--font-serif-it); font-style:italic; font-size:12.5px; color:var(--oro-600); margin-top:2px;} html.dark .brand-sub{color:var(--oro-400);}
 .sidebar-toggle{margin-left:auto; width:30px; height:30px; border-radius:50%; border:1px solid var(--border-mid); background:var(--bg-panel); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); flex-shrink:0; transition:all 0.2s;}
-.sidebar-toggle:hover{border-color:var(--oro-500); color:var(--oro-600);}
-.sidebar.collapsed .sidebar-toggle{margin-left:0;}
-.sidebar-scroll{flex:1; overflow-y:auto; overflow-x:hidden; padding:14px 12px 18px;}
-.sidebar.collapsed .sidebar-scroll{padding:14px 10px;}
+.sidebar-toggle:hover{border-color:var(--oro-500); color:var(--oro-600);} .sidebar.collapsed .sidebar-toggle{margin-left:0;}
+.sidebar-scroll{flex:1; overflow-y:auto; overflow-x:hidden; padding:14px 12px 18px;} .sidebar.collapsed .sidebar-scroll{padding:14px 10px;}
 .sidebar-foot{border-top:1px solid var(--border-soft); padding:14px 16px 16px; flex-shrink:0;}
 
 .main-col{flex:1; min-width:0; display:flex; flex-direction:column; position:relative;}
 .topbar{position:sticky; top:0; z-index:30; display:flex; align-items:center; gap:16px; padding:0 28px; height:72px; background:rgba(253,251,246,0.86); backdrop-filter:blur(10px) saturate(1.4); -webkit-backdrop-filter:blur(10px) saturate(1.4); border-bottom:1px solid var(--border-soft);}
 html.dark .topbar{background:rgba(16,15,13,0.82);}
 .hamburger{display:none; width:38px; height:38px; border-radius:var(--radius-sm); border:1px solid var(--border-mid); background:var(--bg-panel); align-items:center; justify-content:center; color:var(--text-primary);}
-.page-title-wrap{min-width:0; flex:1;}
-.page-eyebrow{font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:var(--oro-600); font-weight:600; margin-bottom:2px;}
-html.dark .page-eyebrow{color:var(--oro-400);}
+.page-title-wrap{min-width:0; flex:1;} .page-eyebrow{font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:var(--oro-600); font-weight:600; margin-bottom:2px;} html.dark .page-eyebrow{color:var(--oro-400);}
 .page-title{font-size:22px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .topbar-stats{display:flex; align-items:center; gap:10px; flex-shrink:0;}
 .stat-pill{display:flex; align-items:center; gap:6px; padding:7px 13px; border-radius:999px; background:var(--bg-panel); border:1px solid var(--border-soft); font-size:13px; font-weight:600; color:var(--text-secondary); white-space:nowrap;}
-.stat-pill.streak{color:var(--rosso-700); border-color:var(--rosso-100); background:var(--rosso-50);}
-html.dark .stat-pill.streak{color:#f0a3ad;}
-.stat-pill.xp{color:var(--verde-700); border-color:var(--verde-100); background:var(--verde-50);}
-html.dark .stat-pill.xp{color:#7bd9a5;}
+.stat-pill.streak{color:var(--rosso-700); border-color:var(--rosso-100); background:var(--rosso-50);} html.dark .stat-pill.streak{color:#f0a3ad;}
+.stat-pill.xp{color:var(--verde-700); border-color:var(--verde-100); background:var(--verde-50);} html.dark .stat-pill.xp{color:#7bd9a5;}
 .content-area{flex:1; padding:28px 32px 80px; max-width:1180px; width:100%; margin:0 auto;}
 
 /* Sidebar Nav */
@@ -119,50 +85,33 @@ html.dark .stat-pill.xp{color:#7bd9a5;}
 .level-header{display:flex; align-items:center; gap:11px; width:100%; padding:11px 12px; border-radius:var(--radius-md); background:transparent; border:none; text-align:left; transition:background 0.18s; position:relative;}
 .level-header:hover{background:var(--bg-panel);}
 .level-badge{width:34px; height:34px; border-radius:9px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:13.5px; color:#fff; letter-spacing:0.3px;}
-.lvl-a{background:linear-gradient(145deg, var(--verde-600), var(--verde-800));}
-.lvl-b{background:linear-gradient(145deg, var(--oro-500), var(--oro-600));}
-.lvl-c{background:linear-gradient(145deg, var(--rosso-600), var(--rosso-800));}
-.level-info{flex:1; min-width:0; overflow:hidden;}
-.sidebar.collapsed .level-info{display:none;}
-.level-name{font-size:14px; font-weight:600; color:var(--text-primary);}
-.level-meta{font-size:11.5px; color:var(--text-muted); margin-top:1px;}
-.level-chevron{color:var(--text-muted); flex-shrink:0; transition:transform 0.25s; display:flex;}
-.sidebar.collapsed .level-chevron{display:none;}
+.lvl-a{background:linear-gradient(145deg, var(--verde-600), var(--verde-800));} .lvl-b{background:linear-gradient(145deg, var(--oro-500), var(--oro-600));} .lvl-c{background:linear-gradient(145deg, var(--rosso-600), var(--rosso-800));}
+.level-info{flex:1; min-width:0; overflow:hidden;} .sidebar.collapsed .level-info{display:none;}
+.level-name{font-size:14px; font-weight:600; color:var(--text-primary);} .level-meta{font-size:11.5px; color:var(--text-muted); margin-top:1px;}
+.level-chevron{color:var(--text-muted); flex-shrink:0; transition:transform 0.25s; display:flex;} .sidebar.collapsed .level-chevron{display:none;}
 .level-header[aria-expanded="true"] .level-chevron{transform:rotate(180deg);}
 .lesson-list{overflow:hidden; max-height:0; transition:max-height 0.32s cubic-bezier(.4,0,.2,1); padding-left:16px; margin-left:17px; border-left:1px dashed var(--border-mid);}
-.lesson-list.open{max-height:900px;}
-.sidebar.collapsed .lesson-list{display:none;}
+.lesson-list.open{max-height:1200px;} .sidebar.collapsed .lesson-list{display:none;}
 .lesson-item{display:flex; align-items:center; gap:9px; padding:8px 10px 8px 12px; margin:1px 4px; border-radius:var(--radius-sm); font-size:13px; color:var(--text-secondary); position:relative; transition:background 0.15s, color 0.15s; cursor:pointer;}
 .lesson-item:hover{background:var(--bg-panel); color:var(--text-primary);}
-.lesson-item.active{background:var(--verde-100); color:var(--verde-800); font-weight:600;}
-html.dark .lesson-item.active{color:#9bdfb8;}
+.lesson-item.active{background:var(--verde-100); color:var(--verde-800); font-weight:600;} html.dark .lesson-item.active{color:#9bdfb8;}
 .lesson-num{width:19px; height:19px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; background:var(--avorio-200); color:var(--text-muted);}
-.lesson-item.active .lesson-num{background:var(--verde-600); color:#fff;}
-.lesson-item.done .lesson-num{background:var(--verde-600); color:#fff;}
+.lesson-item.active .lesson-num{background:var(--verde-600); color:#fff;} .lesson-item.done .lesson-num{background:var(--verde-600); color:#fff;}
 .lesson-label{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .sidebar-divider{height:1px; background:var(--border-soft); margin:14px 8px;}
-.sidebar-section-label{font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); font-weight:700; padding:4px 12px 8px;}
-.sidebar.collapsed .sidebar-section-label{display:none;}
+.sidebar-section-label{font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); font-weight:700; padding:4px 12px 8px;} .sidebar.collapsed .sidebar-section-label{display:none;}
 .fixed-nav-item{display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:var(--radius-md); font-size:13.5px; font-weight:600; color:var(--text-secondary); margin-bottom:2px; transition:all 0.15s; cursor:pointer;}
 .fixed-nav-item:hover{background:var(--bg-panel); color:var(--text-primary);}
-.fixed-nav-item.active{background:var(--inchiostro-900); color:var(--avorio-50);}
-html.dark .fixed-nav-item.active{background:var(--oro-500); color:#1c1813;}
-.fixed-nav-item .ic{font-size:17px; flex-shrink:0; width:20px; text-align:center;}
-.sidebar.collapsed .fixed-nav-item span:not(.ic){display:none;}
-.sidebar.collapsed .fixed-nav-item{justify-content:center;}
-.sidebar.collapsed .level-header{justify-content:center;}
-.sidebar-scrim{display:none; position:fixed; inset:0; background:rgba(20,16,10,0.5); z-index:39; backdrop-filter:blur(2px);}
-.sidebar-scrim.show{display:block;}
+.fixed-nav-item.active{background:var(--inchiostro-900); color:var(--avorio-50);} html.dark .fixed-nav-item.active{background:var(--oro-500); color:#1c1813;}
+.fixed-nav-item .ic{font-size:17px; flex-shrink:0; width:20px; text-align:center;} .sidebar.collapsed .fixed-nav-item span:not(.ic){display:none;}
+.sidebar.collapsed .fixed-nav-item, .sidebar.collapsed .level-header{justify-content:center;}
+.sidebar-scrim{display:none; position:fixed; inset:0; background:rgba(20,16,10,0.5); z-index:39; backdrop-filter:blur(2px);} .sidebar-scrim.show{display:block;}
 
 @media (max-width: 860px){
   .sidebar{position:fixed; left:0; top:0; height:100vh; transform:translateX(-100%); width:300px !important; box-shadow:var(--shadow-elevated);}
-  .sidebar.mobile-open{transform:translateX(0);}
-  .hamburger{display:flex;}
-  .sidebar-toggle{display:none;}
-  .content-area{padding:20px 16px 60px;}
-  .topbar{padding:0 16px; gap:10px;}
-  .stat-pill span:not(.ic){display:none;}
-  .stat-pill{padding:8px;}
+  .sidebar.mobile-open{transform:translateX(0);} .hamburger{display:flex;} .sidebar-toggle{display:none;}
+  .content-area{padding:20px 16px 60px;} .topbar{padding:0 16px; gap:10px;}
+  .stat-pill span:not(.ic){display:none;} .stat-pill{padding:8px;}
 }
 
 /* Home / Dashboard */
@@ -173,107 +122,74 @@ html.dark .fixed-nav-item.active{background:var(--oro-500); color:#1c1813;}
 .hero-text{font-size:15px; opacity:0.88; max-width:480px; line-height:1.6; margin-bottom:26px;}
 .hero-cta{display:inline-flex; align-items:center; gap:9px; background:#fdfbf6; color:var(--verde-900); font-weight:700; font-size:14.5px; padding:13px 26px; border-radius:999px; border:none; box-shadow:0 8px 20px rgba(0,0,0,0.18); transition:transform 0.18s; cursor:pointer;}
 .hero-cta:hover{transform:translateY(-2px);}
-.dash-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-bottom:30px;}
-@media (max-width:760px){.dash-grid{grid-template-columns:repeat(2,1fr);}}
+.dash-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-bottom:30px;} @media (max-width:760px){.dash-grid{grid-template-columns:repeat(2,1fr);}}
 .metric-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:18px 20px; box-shadow:var(--shadow-card);}
-.metric-icon{font-size:20px; margin-bottom:10px;}
-.metric-val{font-family:var(--font-display); font-size:27px; font-weight:700; color:var(--text-primary);}
-.metric-lbl{font-size:12.5px; color:var(--text-secondary); margin-top:3px; font-weight:500;}
+.metric-icon{font-size:20px; margin-bottom:10px;} .metric-val{font-family:var(--font-display); font-size:27px; font-weight:700; color:var(--text-primary);} .metric-lbl{font-size:12.5px; color:var(--text-secondary); margin-top:3px; font-weight:500;}
 
 /* Cards & Content */
 .lesson-breadcrumb{font-size:12.5px; color:var(--text-muted); margin-bottom:6px; display:flex; gap:6px; align-items:center;}
 .lesson-intro{font-family:var(--font-serif-it); font-style:italic; font-size:18px; color:var(--text-secondary); max-width:680px; margin-bottom:28px; line-height:1.55;}
 .card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:28px 30px; margin-bottom:22px; box-shadow:var(--shadow-card);}
 .card h3{font-size:18.5px; display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--border-soft);}
-.card h3 .card-num{width:26px; height:26px; border-radius:7px; background:var(--verde-100); color:var(--verde-800); font-family:var(--font-body); font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-html.dark .card h3 .card-num{background:var(--verde-100); color:#9bdfb8;}
+.card h3 .card-num{width:26px; height:26px; border-radius:7px; background:var(--verde-100); color:var(--verde-800); font-family:var(--font-body); font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;} html.dark .card h3 .card-num{background:var(--verde-100); color:#9bdfb8;}
 .card p{font-size:15px; line-height:1.75; color:var(--text-secondary); margin-bottom:12px;}
 .card ul, .card ol{margin:0 0 12px; padding-left:22px; color:var(--text-secondary); font-size:15px; line-height:1.8;}
-.card strong{color:var(--text-primary); font-weight:600;}
-.card em.it{font-family:var(--font-serif-it); font-style:italic; color:var(--verde-700); font-weight:600; font-size:1.04em;}
-html.dark .card em.it{color:#8fd4ac;}
+.card strong{color:var(--text-primary); font-weight:600;} .card em.it{font-family:var(--font-serif-it); font-style:italic; color:var(--verde-700); font-weight:600; font-size:1.04em;} html.dark .card em.it{color:#8fd4ac;}
 .course-table-wrap{overflow-x:auto; margin:16px 0; border-radius:var(--radius-md); border:1px solid var(--border-soft);}
 table.course-table{width:100%; border-collapse:collapse; font-size:14px; min-width:420px;}
 table.course-table thead th{background:linear-gradient(135deg, var(--verde-800), var(--verde-700)); color:#fdfbf6; text-align:left; padding:11px 16px; font-weight:600; font-size:12.5px; letter-spacing:0.3px; text-transform:uppercase;}
 table.course-table tbody td{padding:11px 16px; border-top:1px solid var(--border-soft); color:var(--text-secondary);}
-table.course-table tbody tr:nth-child(even){background:var(--avorio-50);}
-html.dark table.course-table tbody tr:nth-child(even){background:var(--bg-elevated);}
+table.course-table tbody tr:nth-child(even){background:var(--avorio-50);} html.dark table.course-table tbody tr:nth-child(even){background:var(--bg-elevated);}
 table.course-table tbody td:first-child{font-weight:600; color:var(--text-primary); font-family:var(--font-serif-it); font-style:italic; font-size:15.5px;}
-table.course-table tbody tr:hover{background:var(--verde-50);}
-html.dark table.course-table tbody tr:hover{background:var(--verde-50);}
-.alert-box{display:flex; gap:12px; padding:16px 18px; border-radius:var(--radius-md); background:linear-gradient(135deg, #fbf3e3, #f5e6c8); border:1px solid var(--oro-400); margin:18px 0;}
-html.dark .alert-box{background:linear-gradient(135deg, #2c2415, #211b10); border-color:var(--oro-600);}
-.alert-icon{font-size:19px; flex-shrink:0; line-height:1.5;}
-.alert-box-title{font-weight:700; font-size:13.5px; color:var(--oro-600); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.4px;}
-html.dark .alert-box-title{color:var(--oro-400);}
+table.course-table tbody tr:hover{background:var(--verde-50);} html.dark table.course-table tbody tr:hover{background:var(--verde-50);}
+.alert-box{display:flex; gap:12px; padding:16px 18px; border-radius:var(--radius-md); background:linear-gradient(135deg, #fbf3e3, #f5e6c8); border:1px solid var(--oro-400); margin:18px 0;} html.dark .alert-box{background:linear-gradient(135deg, #2c2415, #211b10); border-color:var(--oro-600);}
+.alert-icon{font-size:19px; flex-shrink:0; line-height:1.5;} .alert-box-title{font-weight:700; font-size:13.5px; color:var(--oro-600); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.4px;} html.dark .alert-box-title{color:var(--oro-400);}
 .alert-box p{font-size:14px; color:var(--text-primary); margin:0; line-height:1.6;}
 
 /* Vocab & Grids */
 .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px; margin:18px 0;}
-.vocab-card{background:var(--bg-elevated); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:16px; cursor:pointer; transition:all 0.18s; position:relative;}
-.vocab-card:hover{border-color:var(--oro-500); transform:translateY(-2px); box-shadow:var(--shadow-card);}
-.vocab-card .vc-it{font-family:var(--font-serif-it); font-style:italic; font-weight:600; font-size:18px; color:var(--verde-800); margin-bottom:3px;}
-html.dark .vocab-card .vc-it{color:#9bdfb8;}
+.vocab-card{background:var(--bg-elevated); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:16px; cursor:pointer; transition:all 0.18s; position:relative;} .vocab-card:hover{border-color:var(--oro-500); transform:translateY(-2px); box-shadow:var(--shadow-card);}
+.vocab-card .vc-it{font-family:var(--font-serif-it); font-style:italic; font-weight:600; font-size:18px; color:var(--verde-800); margin-bottom:3px;} html.dark .vocab-card .vc-it{color:#9bdfb8;}
 .vocab-card .vc-fr{font-size:13px; color:var(--text-secondary);}
-.vocab-card .vc-play{position:absolute; top:12px; right:12px; width:26px; height:26px; border-radius:50%; background:var(--avorio-200); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-muted); transition:all 0.18s;}
-.vocab-card:hover .vc-play{background:var(--verde-600); color:#fff;}
+.vocab-card .vc-play{position:absolute; top:12px; right:12px; width:26px; height:26px; border-radius:50%; background:var(--avorio-200); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-muted); transition:all 0.18s;} .vocab-card:hover .vc-play{background:var(--verde-600); color:#fff;}
 .alpha-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(110px,1fr)); gap:10px; margin:18px 0;}
-.alpha-card{background:var(--bg-elevated); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:14px 10px; text-align:center; cursor:pointer; transition:all 0.18s;}
-.alpha-card:hover{border-color:var(--rosso-500); background:var(--rosso-50); transform:scale(1.04);}
-.alpha-letter{font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--rosso-700);}
-html.dark .alpha-letter{color:#e0939c;}
+.alpha-card{background:var(--bg-elevated); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:14px 10px; text-align:center; cursor:pointer; transition:all 0.18s;} .alpha-card:hover{border-color:var(--rosso-500); background:var(--rosso-50); transform:scale(1.04);}
+.alpha-letter{font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--rosso-700);} html.dark .alpha-letter{color:#e0939c;}
 .alpha-sound{font-size:11px; color:var(--text-muted); margin-top:4px; font-family:monospace;}
 
 .complete-btn{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; background:linear-gradient(135deg, var(--verde-600), var(--verde-700)); color:#fff; border:none; font-weight:700; font-size:14px; box-shadow:0 6px 16px rgba(19,99,56,0.3); transition:transform 0.18s; cursor:pointer;}
-.complete-btn:hover{transform:translateY(-2px);}
-.complete-btn:disabled{opacity:0.55; cursor:default; transform:none;}
+.complete-btn:hover{transform:translateY(-2px);} .complete-btn:disabled{opacity:0.55; cursor:default; transform:none;}
 
 /* Exercises & Flashcards */
 .exercise-type-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin-bottom:10px;}
-.ex-type-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:22px; cursor:pointer; transition:all 0.2s; box-shadow:var(--shadow-card);}
-.ex-type-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-elevated); border-color:var(--oro-400);}
+.ex-type-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:22px; cursor:pointer; transition:all 0.2s; box-shadow:var(--shadow-card);} .ex-type-card:hover{transform:translateY(-3px); box-shadow:var(--shadow-elevated); border-color:var(--oro-400);}
 .ex-type-icon{width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:21px; margin-bottom:14px;}
-.ex-type-title{font-size:16px; margin-bottom:5px;}
-.ex-type-desc{font-size:13px; color:var(--text-secondary); line-height:1.55;}
+.ex-type-title{font-size:16px; margin-bottom:5px;} .ex-type-desc{font-size:13px; color:var(--text-secondary); line-height:1.55;}
 .flash-stage{display:flex; flex-direction:column; align-items:center; padding:30px 10px;}
 .flashcard-3d{width:100%; max-width:420px; height:240px; perspective:1200px; cursor:pointer; margin-bottom:24px;}
 .flashcard-inner{position:relative; width:100%; height:100%; transition:transform 0.5s cubic-bezier(.4,0,.2,1); transform-style:preserve-3d;}
 .flashcard-3d.flipped .flashcard-inner{transform:rotateY(180deg);}
 .flashcard-face{position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius-xl); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; box-shadow:var(--shadow-elevated);}
-.flashcard-face.front{background:linear-gradient(150deg, var(--verde-700), var(--verde-900)); color:#fdfbf6;}
-.flashcard-face.back{background:linear-gradient(150deg, var(--oro-500), var(--rosso-700)); color:#fff; transform:rotateY(180deg);}
-.fc-word-it{font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:10px; text-align:center;}
-.fc-hint-txt{font-size:13px; opacity:0.75;}
+.flashcard-face.front{background:linear-gradient(150deg, var(--verde-700), var(--verde-900)); color:#fdfbf6;} .flashcard-face.back{background:linear-gradient(150deg, var(--oro-500), var(--rosso-700)); color:#fff; transform:rotateY(180deg);}
+.fc-word-it{font-family:var(--font-display); font-size:32px; font-weight:700; margin-bottom:10px; text-align:center;} .fc-hint-txt{font-size:13px; opacity:0.75;}
 .flash-controls{display:flex; gap:12px;}
 .flash-btn{padding:11px 24px; border-radius:999px; border:1px solid var(--border-mid); background:var(--bg-card); font-weight:600; font-size:13.5px; color:var(--text-primary); transition:all 0.18s; cursor:pointer;}
-.flash-btn.know{border-color:var(--verde-600); color:var(--verde-700);}
-.flash-btn.know:hover{background:var(--verde-100);}
-.flash-btn.dontknow{border-color:var(--rosso-600); color:var(--rosso-700);}
-.flash-btn.dontknow:hover{background:var(--rosso-100);}
+.flash-btn.know{border-color:var(--verde-600); color:var(--verde-700);} .flash-btn.know:hover{background:var(--verde-100);}
+.flash-btn.dontknow{border-color:var(--rosso-600); color:var(--rosso-700);} .flash-btn.dontknow:hover{background:var(--rosso-100);}
 
 /* Exams */
 .exam-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;}
-.exam-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:22px; box-shadow:var(--shadow-card); position:relative;}
-.exam-card.locked{opacity:0.5;}
-.exam-cert-badge{display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; background:var(--rosso-100); color:var(--rosso-700); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:12px;}
-html.dark .exam-cert-badge{color:#e0939c;}
+.exam-card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--radius-lg); padding:22px; box-shadow:var(--shadow-card); position:relative;} .exam-card.locked{opacity:0.5;}
+.exam-cert-badge{display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; background:var(--rosso-100); color:var(--rosso-700); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:12px;} html.dark .exam-cert-badge{color:#e0939c;}
 .exam-meta-row{display:flex; gap:14px; margin:14px 0; font-size:12.5px; color:var(--text-secondary);}
-.exam-start-btn{width:100%; padding:11px; border-radius:var(--radius-md); border:none; font-weight:700; font-size:13.5px; background:var(--inchiostro-900); color:var(--avorio-50); margin-top:10px; transition:all 0.18s; cursor:pointer;}
-html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
-.exam-start-btn:hover{transform:translateY(-2px);}
-.exam-start-btn:disabled{background:var(--avorio-200); color:var(--text-muted); cursor:not-allowed;}
+.exam-start-btn{width:100%; padding:11px; border-radius:var(--radius-md); border:none; font-weight:700; font-size:13.5px; background:var(--inchiostro-900); color:var(--avorio-50); margin-top:10px; transition:all 0.18s; cursor:pointer;} html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
+.exam-start-btn:hover{transform:translateY(-2px);} .exam-start-btn:disabled{background:var(--avorio-200); color:var(--text-muted); cursor:not-allowed;}
 
-/* Progress & Settings */
-.settings-row{display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--border-soft);}
-.settings-row:last-child{border-bottom:none;}
-.settings-label{font-size:14.5px; font-weight:600; color:var(--text-primary);}
-.settings-desc{font-size:12.5px; color:var(--text-secondary); margin-top:2px;}
-.toggle-switch{width:46px; height:26px; border-radius:999px; background:var(--avorio-300); position:relative; transition:background 0.2s; flex-shrink:0; border:none; cursor:pointer;}
-.toggle-switch.on{background:var(--verde-600);}
-.toggle-switch::after{content:''; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);}
-.toggle-switch.on::after{transform:translateX(20px);}
-
-/* Toast */
+/* Settings & Toast */
+.settings-row{display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid var(--border-soft);} .settings-row:last-child{border-bottom:none;}
+.settings-label{font-size:14.5px; font-weight:600; color:var(--text-primary);} .settings-desc{font-size:12.5px; color:var(--text-secondary); margin-top:2px;}
+.toggle-switch{width:46px; height:26px; border-radius:999px; background:var(--avorio-300); position:relative; transition:background 0.2s; flex-shrink:0; border:none; cursor:pointer;} .toggle-switch.on{background:var(--verde-600);}
+.toggle-switch::after{content:''; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.3);} .toggle-switch.on::after{transform:translateX(20px);}
 .toast{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); z-index:200; background:var(--inchiostro-900); color:#fdfbf6; padding:13px 24px; border-radius:999px; font-size:13.5px; font-weight:600; box-shadow:var(--shadow-elevated); opacity:0; transition:all 0.3s; display:flex; align-items:center; gap:10px; pointer-events:none;}
 .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 </style>
@@ -325,12 +241,18 @@ html.dark .exam-start-btn{background:var(--oro-500); color:#1c1813;}
 const LEVELS = [
   { id:'A1', name:'Fondations', cls:'la', desc:'Premiers pas en italien',
     lessons:[
-      {id:'a1-1', title:'Alphabet et prononciation', icon:'🔤'},
-      {id:'a1-2', title:'Articles et genre des noms', icon:'📐'},
-      {id:'a1-3', title:'Présent — verbes réguliers', icon:'✍️'},
-      {id:'a1-4', title:'Essere / Avere', icon:'🔑'},
-      {id:'a1-5', title:'Pronoms et politesse (tu/Lei)', icon:'🗣️'},
-      {id:'a1-6', title:'Vocabulaire de base illustré', icon:'🎴'},
+      {id:'a1-1', title:'Phonétique et prononciation', icon:'🔤'},
+      {id:'a1-2', title:'Le genre et le nombre', icon:'👥'},
+      {id:'a1-3', title:'Les articles', icon:'📐'},
+      {id:'a1-4', title:'Pronoms et politesse (tu/Lei)', icon:'🗣️'},
+      {id:'a1-5', title:'Présent régulier (-are, -ere, -ire)', icon:'✍️'},
+      {id:'a1-6', title:'Essere, Avere et C\'è/Ci sono', icon:'🔑'},
+      {id:'a1-7', title:'Les verbes modaux', icon:'🚦'},
+      {id:'a1-8', title:'Poser des questions', icon:'❓'},
+      {id:'a1-9', title:'Adjectifs et possessifs', icon:'🏷️'},
+      {id:'a1-10', title:'La négation', icon:'🚫'},
+      {id:'a1-11', title:'Verbes d\'action irréguliers', icon:'🏃'},
+      {id:'a1-12', title:'Lexique de survie', icon:'🎴'},
     ]},
   { id:'A2', name:'Premiers récits', cls:'la', desc:'Raconter et décrire',
     lessons:[
@@ -344,26 +266,19 @@ const LEVELS = [
     lessons:[
       {id:'b1-1', title:'Futur simple et conditionnel', icon:'🔮'},
       {id:'b1-2', title:'Subjonctif présent', icon:'💭'},
-      {id:'b1-3', title:'Pronoms COD/COI combinés', icon:'🧩'},
-      {id:'b1-4', title:'Connecteurs et opinion', icon:'💬'},
     ]},
   { id:'B2', name:'Maîtrise courante', cls:'lb', desc:'Structures complexes',
     lessons:[
       {id:'b2-1', title:'Subjonctif imparfait', icon:'🎭'},
       {id:'b2-2', title:'Periodo ipotetico', icon:'🌀'},
-      {id:'b2-3', title:'Forme passive et "si"', icon:'🔄'},
-      {id:'b2-4', title:'Discours indirect', icon:'📢'},
     ]},
   { id:'C1', name:'Expression avancée', cls:'lc', desc:'Nuances et registres',
     lessons:[
       {id:'c1-1', title:'Registres formel / familier', icon:'🎩'},
-      {id:'c1-2', title:'Subjonctif passé et plus-que-parfait', icon:'📖'},
-      {id:'c1-3', title:'Expressions idiomatiques', icon:'🍇'},
     ]},
   { id:'C2', name:'Maîtrise totale', cls:'lc', desc:'Littérature et nuance',
     lessons:[
-      {id:'c2-1', title:'Italien littéraire et journalistique', icon:'📰'},
-      {id:'c2-2', title:'Lexique fin et faux-amis', icon:'🎯'},
+      {id:'c2-1', title:'Lexique fin et faux-amis', icon:'🎯'},
     ]},
 ];
 
@@ -387,7 +302,6 @@ const VOCAB_ALL = [
   {it:'il fratello', fr:'le frère', cat:'Famille'}, {it:'la sorella', fr:'la sœur', cat:'Famille'},
   {it:'i nonni', fr:'les grands-parents', cat:'Famille'}, {it:'lo zio', fr:'l\'oncle', cat:'Famille'},
   {it:'la zia', fr:'la tante', cat:'Famille'}, {it:'il cugino', fr:'le cousin', cat:'Famille'},
-  {it:'il marito', fr:'le mari', cat:'Famille'}, {it:'la moglie', fr:'la femme', cat:'Famille'},
   
   {it:'zero', fr:'zéro', cat:'Chiffres'}, {it:'uno', fr:'un', cat:'Chiffres'}, 
   {it:'due', fr:'deux', cat:'Chiffres'}, {it:'tre', fr:'trois', cat:'Chiffres'},
@@ -395,40 +309,31 @@ const VOCAB_ALL = [
   {it:'sei', fr:'six', cat:'Chiffres'}, {it:'sette', fr:'sept', cat:'Chiffres'},
   {it:'otto', fr:'huit', cat:'Chiffres'}, {it:'nove', fr:'neuf', cat:'Chiffres'},
   {it:'dieci', fr:'dix', cat:'Chiffres'}, {it:'venti', fr:'vingt', cat:'Chiffres'},
-  {it:'cento', fr:'cent', cat:'Chiffres'}, {it:'mille', fr:'mille', cat:'Chiffres'},
   
   {it:'rosso', fr:'rouge', cat:'Couleurs'}, {it:'verde', fr:'vert', cat:'Couleurs'},
-  {it:'blu', fr:'bleu foncé', cat:'Couleurs'}, {it:'azzurro', fr:'bleu clair', cat:'Couleurs'},
-  {it:'giallo', fr:'jaune', cat:'Couleurs'}, {it:'nero', fr:'noir', cat:'Couleurs'},
-  {it:'bianco', fr:'blanc', cat:'Couleurs'}, {it:'grigio', fr:'gris', cat:'Couleurs'},
+  {it:'blu', fr:'bleu foncé', cat:'Couleurs'}, {it:'giallo', fr:'jaune', cat:'Couleurs'},
+  {it:'nero', fr:'noir', cat:'Couleurs'}, {it:'bianco', fr:'blanc', cat:'Couleurs'},
   
-  {it:'lunedì', fr:'lundi', cat:'Jours'}, {it:'martedì', fr:'mardi', cat:'Jours'},
-  {it:'mercoledì', fr:'mercredi', cat:'Jours'}, {it:'giovedì', fr:'jeudi', cat:'Jours'},
-  {it:'venerdì', fr:'vendredi', cat:'Jours'}, {it:'sabato', fr:'samedi', cat:'Jours'},
-  {it:'domenica', fr:'dimanche', cat:'Jours'},
+  {it:'lunedì', fr:'lundi', cat:'Temps'}, {it:'martedì', fr:'mardi', cat:'Temps'},
+  {it:'mercoledì', fr:'mercredi', cat:'Temps'}, {it:'giovedì', fr:'jeudi', cat:'Temps'},
+  {it:'venerdì', fr:'vendredi', cat:'Temps'}, {it:'sabato', fr:'samedi', cat:'Temps'},
+  {it:'domenica', fr:'dimanche', cat:'Temps'}, {it:'oggi', fr:'aujourd\'hui', cat:'Temps'},
+  {it:'domani', fr:'demain', cat:'Temps'}, {it:'ieri', fr:'hier', cat:'Temps'},
   
   {it:'buongiorno', fr:'bonjour', cat:'Salutations'}, {it:'buonasera', fr:'bonsoir', cat:'Salutations'},
   {it:'ciao', fr:'salut', cat:'Salutations'}, {it:'arrivederci', fr:'au revoir', cat:'Salutations'},
   {it:'grazie', fr:'merci', cat:'Salutations'}, {it:'prego', fr:'je t\'en prie', cat:'Salutations'},
-  {it:'scusa', fr:'pardon (tu)', cat:'Salutations'}, {it:'scusi', fr:'pardon (Lei)', cat:'Salutations'},
+
+  {it:'chi?', fr:'qui ?', cat:'Questions'}, {it:'cosa?', fr:'quoi / que ?', cat:'Questions'},
+  {it:'dove?', fr:'où ?', cat:'Questions'}, {it:'quando?', fr:'quand ?', cat:'Questions'},
+  {it:'perché?', fr:'pourquoi / parce que', cat:'Questions'}, {it:'come?', fr:'comment ?', cat:'Questions'},
 
   {it:'il pane', fr:'le pain', cat:'Nourriture'}, {it:'la pasta', fr:'les pâtes', cat:'Nourriture'},
-  {it:'il formaggio', fr:'le fromage', cat:'Nourriture'}, {it:'il pomodoro', fr:'la tomate', cat:'Nourriture'},
-  {it:'la carne', fr:'la viande', cat:'Nourriture'}, {it:'il pesce', fr:'le poisson', cat:'Nourriture'},
+  {it:'il formaggio', fr:'le fromage', cat:'Nourriture'}, {it:'la carne', fr:'la viande', cat:'Nourriture'},
   {it:'l\'acqua', fr:'l\'eau', cat:'Nourriture'}, {it:'il vino', fr:'le vin', cat:'Nourriture'},
-  {it:'la colazione', fr:'le petit-déjeuner', cat:'Nourriture'}, {it:'il pranzo', fr:'le déjeuner', cat:'Nourriture'},
-  {it:'la cena', fr:'le dîner', cat:'Nourriture'}, {it:'il dolce', fr:'le dessert', cat:'Nourriture'},
 
   {it:'il treno', fr:'le train', cat:'Voyages'}, {it:'il biglietto', fr:'le billet', cat:'Voyages'},
-  {it:'la stazione', fr:'la gare', cat:'Voyages'}, {it:'il binario', fr:'la voie', cat:'Voyages'},
-  {it:'l\'aeroporto', fr:'l\'aéroport', cat:'Voyages'}, {it:'il volo', fr:'le vol', cat:'Voyages'},
-  {it:'la valigia', fr:'la valise', cat:'Voyages'}, {it:'il passaporto', fr:'le passeport', cat:'Voyages'},
-  {it:'l\'albergo', fr:'l\'hôtel', cat:'Voyages'}, {it:'la camera doppia', fr:'la chambre double', cat:'Voyages'},
-
-  {it:'il sole', fr:'le soleil', cat:'Météo'}, {it:'la pioggia', fr:'la pluie', cat:'Météo'},
-  {it:'fa caldo', fr:'il fait chaud', cat:'Météo'}, {it:'fa freddo', fr:'il fait froid', cat:'Météo'},
-  {it:'piove', fr:'il pleut', cat:'Météo'}, {it:'nevica', fr:'il neige', cat:'Météo'},
-  {it:'c\'è vento', fr:'il y a du vent', cat:'Météo'}, {it:'le nuvole', fr:'les nuages', cat:'Météo'}
+  {it:'l\'aeroporto', fr:'l\'aéroport', cat:'Voyages'}, {it:'la valigia', fr:'la valise', cat:'Voyages'}
 ];
 
 const CONJ_PRESENT = {
@@ -441,28 +346,25 @@ const CONJ_ESSERE_AVERE = {
   'Essere (être)':['sono','sei','è','siamo','siete','sono'],
   'Avere (avoir)':['ho','hai','ha','abbiamo','avete','hanno']
 };
+const CONJ_MODALI = {
+  'Dovere (devoir)':['devo','devi','deve','dobbiamo','dovete','devono'],
+  'Potere (pouvoir)':['posso','puoi','può','possiamo','potete','possono'],
+  'Volere (vouloir)':['voglio','vuoi','vuole','vogliamo','volete','vogliono'],
+  'Sapere (savoir)':['so','sai','sa','sappiamo','sapete','sanno']
+};
+const CONJ_IRREG_A1 = {
+  'Andare (aller)':['vado','vai','va','andiamo','andate','vanno'],
+  'Fare (faire)':['faccio','fai','fa','facciamo','fate','fanno'],
+  'Uscire (sortir)':['esco','esci','esce','usciamo','uscite','escono'],
+  'Venire (venir)':['vengo','vieni','viene','veniamo','venite','vengono']
+};
 const CONJ_PASSATO = {
   'Parlare (avere)':['ho parlato','hai parlato','ha parlato','abbiamo parlato','avete parlato','hanno parlato'],
   'Andare (essere)':['sono andato/a','sei andato/a','è andato/a','siamo andati/e','siete andati/e','sono andati/e']
 };
 const CONJ_IMPERFETTO = {
   'Parlare':['parlavo','parlavi','parlava','parlavamo','parlavate','parlavano'],
-  'Vedere':['vedevo','vedevi','vedeva','vedevamo','vedevate','vedevano'],
-  'Dormire':['dormivo','dormivi','dormiva','dormivamo','dormivate','dormivano']
-};
-const CONJ_IMPERFETTO_IRREG = {
-  'Essere':['ero','eri','era','eravamo','eravate','erano'],
-  'Fare':['facevo','facevi','faceva','facevamo','facevate','facevano'],
-  'Bere':['bevevo','bevevi','beveva','bevevamo','bevevate','bevevano'],
-  'Dire':['dicevo','dicevi','diceva','dicevamo','dicevate','dicevano']
-};
-const CONJ_FUTURO = {
-  'Parlare (futur)':['parlerò','parlerai','parlerà','parleremo','parlerete','parleranno'],
-  'Parlare (cond.)':['parlerei','parleresti','parlerebbe','parleremmo','parlereste','parlerebbero']
-};
-const CONJ_CONGIUNTIVO_PRES = {
-  'Che io/tu/lui parli':['parli','parli','parli','parliamo','parliate','parlino'],
-  'Che io/tu/lui sia':['sia','sia','sia','siamo','siate','siano']
+  'Essere':['ero','eri','era','eravamo','eravate','erano']
 };
 
 const PREPOSIZIONI_ARTICOLATE = {
@@ -478,9 +380,7 @@ const PREPOSIZIONI_ARTICOLATE = {
 
 const EXAMS = [
   {id:'ex-a1', level:'A1', cert:'CILS A1', duration:'60 min', parts:'Ascolto · Lettura · Scrittura', unlockAt:0},
-  {id:'ex-a2', level:'A2', cert:'CELI 1', duration:'90 min', parts:'4 épreuves complètes', unlockAt:6},
-  {id:'ex-b1', level:'B1', cert:'CILS B1', duration:'120 min', parts:'4 épreuves + orale', unlockAt:11},
-  {id:'ex-b2', level:'B2', cert:'CELI 3', duration:'150 min', parts:'4 épreuves + orale', unlockAt:15}
+  {id:'ex-a2', level:'A2', cert:'CELI 1', duration:'90 min', parts:'4 épreuves complètes', unlockAt:12}
 ];
 
 const ALL_LESSON_IDS = LEVELS.reduce((acc, lv) => acc.concat(lv.lessons.map(l => l.id)), []);
@@ -499,7 +399,7 @@ const defaultState = {
 
 let savedState;
 try {
-  savedState = JSON.parse(localStorage.getItem('italiano_app_state')) || defaultState;
+  savedState = JSON.parse(localStorage.getItem('italiano_app_state_v2')) || defaultState;
   if (!Array.isArray(savedState.completedLessons)) savedState = defaultState;
 } catch(e) {
   savedState = defaultState;
@@ -518,12 +418,12 @@ function saveLocalState() {
     completedLessons: Array.from(state.completedLessons),
     openLevels: Array.from(state.openLevels)
   };
-  localStorage.setItem('italiano_app_state', JSON.stringify(stateToSave));
+  localStorage.setItem('italiano_app_state_v2', JSON.stringify(stateToSave));
 }
 
 function lessonsCompletedInLevel(level) { return level.lessons.filter(l => state.completedLessons.has(l.id)).length; }
 function overallProgress() { return Math.round((state.completedLessons.size / TOTAL_LESSONS) * 100); }
-function wordsLearnedCount() { return Math.min(VOCAB_ALL.length, state.completedLessons.size * 9); }
+function wordsLearnedCount() { return Math.min(VOCAB_ALL.length, state.completedLessons.size * 5); }
 
 function markComplete(lessonId){
   if(!state.completedLessons.has(lessonId)){
@@ -574,18 +474,12 @@ function renderBackgroundOrnaments(){
     <g stroke="currentColor" fill="none" stroke-width="1.5" color="var(--inchiostro-700)">
       <line x1="60" y1="0" x2="60" y2="900"/><line x1="40" y1="0" x2="40" y2="900"/><line x1="80" y1="0" x2="80" y2="900"/>
     </g>
-  </svg>
-  <svg width="420" height="420" style="bottom:-80px; left:-90px;" viewBox="0 0 420 420">
-    <g fill="none" stroke="var(--verde-700)" stroke-width="2">
-      <path d="M210 400 C 150 320, 180 220, 210 60" />
-    </g>
   </svg>`;
 }
 
 function buildSidebar(){
   const nav = document.getElementById('sidebarScroll');
   let html = '';
-  
   LEVELS.forEach(level => {
     const done = lessonsCompletedInLevel(level);
     const isOpen = state.openLevels.has(level.id);
@@ -597,9 +491,7 @@ function buildSidebar(){
           <div class="level-name">${level.name}</div>
           <div class="level-meta">${done}/${level.lessons.length} leçons</div>
         </div>
-        <div class="level-chevron">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
+        <div class="level-chevron"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg></div>
       </button>
       <div class="lesson-list ${isOpen ? 'open' : ''}" id="lessonlist-${level.id}">
         ${level.lessons.map((lesson, idx) => {
@@ -615,16 +507,12 @@ function buildSidebar(){
       </div>
     </div>`;
   });
-
   html += `
     <div class="sidebar-divider"></div>
     <div class="sidebar-section-label">Pratique</div>
     <div class="fixed-nav-item" id="nav-exercises" onclick="loadContent('exercises')"><span class="ic">🎯</span><span>Exercices</span></div>
     <div class="fixed-nav-item" id="nav-vocab" onclick="loadContent('vocab')"><span class="ic">📔</span><span>Dictionnaire</span></div>
     <div class="fixed-nav-item" id="nav-exams" onclick="loadContent('exams')"><span class="ic">🎓</span><span>Examens blancs</span></div>
-    <div class="sidebar-divider"></div>
-    <div class="sidebar-section-label">Suivi</div>
-    <div class="fixed-nav-item" id="nav-progress" onclick="loadContent('progress')"><span class="ic">📊</span><span>Progression</span></div>
   `;
   nav.innerHTML = html;
 }
@@ -652,27 +540,19 @@ function setActiveFixedNav(id){
   if(target) target.classList.add('active');
 }
 
-function safeEscape(str) {
-  return str.replace(/'/g, "&apos;");
-}
-
+function safeEscape(str) { return str.replace(/'/g, "&apos;"); }
 function renderVocabGrid(words){
   return `<div class="vocab-grid">${words.map(w => `
     <div class="vocab-card" onclick="speakItalian('${safeEscape(w.it)}')">
-      <div class="vc-it">${w.it}</div>
-      <div class="vc-fr">${w.fr}</div>
-      <div class="vc-play">▶</div>
+      <div class="vc-it">${w.it}</div><div class="vc-fr">${w.fr}</div><div class="vc-play">▶</div>
     </div>`).join('')}</div>`;
 }
-
 function renderAlphaGrid(){
   return `<div class="alpha-grid">${ALPHABET.map(a => `
     <div class="alpha-card" onclick="speakItalian('${safeEscape(a.ex)}')">
-      <div class="alpha-letter">${a.l}</div>
-      <div class="alpha-sound">${a.s}</div>
+      <div class="alpha-letter">${a.l}</div><div class="alpha-sound">${a.s}</div>
     </div>`).join('')}</div>`;
 }
-
 function renderConjTable(title, data, pronouns=['io','tu','lui/lei','noi','voi','loro']){
   const verbs = Object.keys(data);
   return `<div class="course-table-wrap"><table class="course-table">
@@ -680,7 +560,6 @@ function renderConjTable(title, data, pronouns=['io','tu','lui/lei','noi','voi',
     <tbody>${verbs.map(v => `<tr><td>${v}</td>${data[v].map(f=>`<td><em class="it">${f}</em></td>`).join('')}</tr>`).join('')}</tbody>
   </table></div>`;
 }
-
 function renderPrepTable(){
   const d = PREPOSIZIONI_ARTICOLATE;
   return `<div class="course-table-wrap"><table class="course-table">
@@ -688,11 +567,9 @@ function renderPrepTable(){
     <tbody>${d.rows.map(r => `<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
   </table></div>`;
 }
-
 function renderAlertBox(title, text){
   return `<div class="alert-box"><div class="alert-icon">⚠️</div><div><div class="alert-box-title">${title}</div><p>${text}</p></div></div>`;
 }
-
 function speakItalian(text){
   if(!('speechSynthesis' in window)){ showToast('🔇','Audio non disponible'); return; }
   const utter = new SpeechSynthesisUtterance(text);
@@ -704,13 +581,11 @@ function loadContent(id, param){
   closeMobileSidebar();
   const area = document.getElementById('contentArea');
   setActiveFixedNav(id === 'lesson' ? null : id);
-
   if(id === 'home'){ renderHome(area); setEyebrow('Benvenuto','La tua casa italiana'); }
   else if(id === 'lesson'){ state.currentLesson = param; renderLesson(area, param); buildSidebar(); }
   else if(id === 'exercises'){ renderExercisesHub(area); setEyebrow('Pratica','Exercices'); }
   else if(id === 'vocab'){ renderVocabDictionary(area); setEyebrow('Dizionario','Dictionnaire complet'); }
   else if(id === 'exams'){ renderExams(area); setEyebrow('Certificazione','Examens blancs'); }
-  else if(id === 'progress'){ renderProgress(area); setEyebrow('Statistiche','Ta progression'); }
   else if(id === 'settings'){ renderSettings(area); setEyebrow('Configurazione','Paramètres'); }
   else { renderHome(area); }
   window.scrollTo(0,0);
@@ -725,7 +600,7 @@ function renderHome(area){
     <div class="hero-banner">
       <div class="hero-eyebrow">Buongiorno e benvenuto</div>
       <h1 class="hero-title">Apprends l'italien pas à pas, con piacere.</h1>
-      <p class="hero-text">Poursuis ton apprentissage. Tes leçons et ta progression sont sauvegardées automatiquement.</p>
+      <p class="hero-text">L'encyclopédie complète de la langue italienne. Ta progression est sauvegardée automatiquement.</p>
       <button class="hero-cta" onclick="loadContent('lesson', 'a1-1')">Commencer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
     <div class="dash-grid">
@@ -753,21 +628,16 @@ function startFlashcards(){
   const area = document.getElementById('contentArea');
   const wordsToPractice = VOCAB_ALL.slice(0, 10); 
   let currentCard = 0;
-  
   window.nextFlashcard = (knew) => {
     if(!knew) wordsToPractice.push(wordsToPractice[currentCard]);
     currentCard++;
     renderCard();
   };
-
   const renderCard = () => {
     if(currentCard >= wordsToPractice.length) {
       showToast('🏆', 'Révision terminée ! +10 XP');
-      state.xp += 10;
-      updateTopbarStats();
-      saveLocalState();
-      renderExercisesHub(area);
-      return;
+      state.xp += 10; updateTopbarStats(); saveLocalState();
+      renderExercisesHub(area); return;
     }
     const w = wordsToPractice[currentCard];
     area.innerHTML = `
@@ -790,7 +660,7 @@ function startFlashcards(){
 
 function renderVocabDictionary(area){
   let html = `<p class="lesson-intro">Retrouve ici tout le lexique.</p>`;
-  ['Famille', 'Chiffres', 'Couleurs', 'Jours', 'Salutations', 'Nourriture', 'Voyages', 'Météo'].forEach(cat => {
+  ['Famille', 'Chiffres', 'Couleurs', 'Temps', 'Salutations', 'Questions', 'Nourriture', 'Voyages'].forEach(cat => {
     const words = VOCAB_ALL.filter(v => v.cat === cat);
     if(words.length) html += `<div class="card"><h3>${cat}</h3>${renderVocabGrid(words)}</div>`;
   });
@@ -810,10 +680,6 @@ function renderExams(area){
     </div>`;
   });
   area.innerHTML = html + `</div>`;
-}
-
-function renderProgress(area){
-  area.innerHTML = `<p class="lesson-intro">Continue d'apprendre pour débloquer de nouveaux succès.</p>`;
 }
 
 function renderSettings(area){
@@ -859,6 +725,7 @@ function renderLesson(area, lessonId){
 
 const LESSON_CONTENT = {
 
+/* ================== NIVEAU A1 (ENCYCLOPEDIE 12 LECON) ================== */
 'a1-1': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Les consonnes dures et douces (C et G)</h3>
@@ -870,20 +737,34 @@ const LESSON_CONTENT = {
     </ul>
     ${renderAlphaGrid()}
   </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Les groupes spécifiques</h3>
+    <ul>
+      <li><strong>GN :</strong> comme dans "agneau". Ex: <em class="it">gnocchi, bagno</em>.</li>
+      <li><strong>GLI :</strong> comme le "lli" de "fille". Ex: <em class="it">famiglia, aglio</em>.</li>
+      <li><strong>SCE / SCI :</strong> se prononcent "ché" / "chi". Ex: <em class="it">pesce, sciare</em>.</li>
+      <li><strong>Les doubles consonnes :</strong> On doit marquer un léger arrêt sur la consonne. <em class="it">Penne</em> (pâtes) $\\neq$ <em class="it">pene</em> (peines).</li>
+    </ul>
+  </div>
   ${renderAlertBox("Piège fréquent", "Toutes les lettres se prononcent en italien ! Par exemple, 'grazie' se prononce [gra-tsi-é], on n'avale pas le 'e' final.")}
 `,
+
 'a1-2': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Le genre des noms</h3>
+    <h3><span class="card-num">1</span>Le genre des noms (Masculin / Féminin)</h3>
     <p>Le genre d'un mot se repère généralement à sa dernière voyelle :</p>
     <ul>
       <li><strong>Terminaison -O :</strong> Masculin singulier (<em class="it">il libro</em>). Pluriel en <strong>-I</strong> (<em class="it">i libri</em>).</li>
       <li><strong>Terminaison -A :</strong> Féminin singulier (<em class="it">la casa</em>). Pluriel en <strong>-E</strong> (<em class="it">le case</em>).</li>
-      <li><strong>Terminaison -E :</strong> Masculin ou Féminin. Pluriel toujours en <strong>-I</strong>.</li>
+      <li><strong>Terminaison -E :</strong> Masculin (<em class="it">il padre</em>) ou Féminin (<em class="it">la madre</em>). Pluriel toujours en <strong>-I</strong> (<em class="it">i padri, le madri</em>).</li>
     </ul>
   </div>
+  ${renderAlertBox("Exceptions courantes", "Certains mots d'origine grecque finissent en -MA mais sont masculins : il problema, il cinema, il sistema. Le mot 'mano' finit en -O mais est féminin (la mano, le mani).")}
+`,
+
+'a1-3': () => `
   <div class="card">
-    <h3><span class="card-num">2</span>Les Articles Définis (Le, La, Les)</h3>
+    <h3><span class="card-num">1</span>Les Articles Définis (Le, La, Les)</h3>
     <div class="course-table-wrap"><table class="course-table">
       <thead><tr><th>Type de mot</th><th>Singulier</th><th>Pluriel</th></tr></thead>
       <tbody>
@@ -895,48 +776,168 @@ const LESSON_CONTENT = {
       </tbody>
     </table></div>
   </div>
-`,
-'a1-3': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Les trois groupes réguliers (-are, -ere, -ire)</h3>
-    ${renderConjTable('Verbe', CONJ_PRESENT)}
+    <h3><span class="card-num">2</span>Les Articles Indéfinis (Un, Une, Des)</h3>
+    <div class="course-table-wrap"><table class="course-table">
+      <thead><tr><th>Genre</th><th>Devant Consonne</th><th>Devant Voyelle</th><th>Devant cas spécial (s+cons, z)</th></tr></thead>
+      <tbody>
+        <tr><td>Masculin</td><td>un <em class="it">(un libro)</em></td><td>un <em class="it">(un amico)</em></td><td>uno <em class="it">(uno stadio)</em></td></tr>
+        <tr><td>Féminin</td><td>una <em class="it">(una casa)</em></td><td>un' <em class="it">(un'amica)</em></td><td>una <em class="it">(una studentessa)</em></td></tr>
+      </tbody>
+    </table></div>
   </div>
-  <div class="card">
-    <h3><span class="card-num">2</span>Le piège du troisième groupe (-ire)</h3>
-    <p>Certains verbes du 3e groupe insèrent <strong>-isc-</strong> entre le radical et la terminaison (sauf à noi et voi). Exemples : <em class="it">capire</em> (comprendre), <em class="it">finire</em> (finir).</p>
-  </div>
-  ${renderAlertBox("Astuce conversation", "En italien, l'usage des pronoms sujets (io, tu, lui...) n'est pas obligatoire.")}
 `,
+
 'a1-4': () => `
   <div class="card">
-    <h3><span class="card-num">1</span>Essere et Avere</h3>
-    ${renderConjTable('Verbe', CONJ_ESSERE_AVERE)}
+    <h3><span class="card-num">1</span>Les pronoms sujets</h3>
+    <p><strong>io</strong> (je), <strong>tu</strong> (tu), <strong>lui / lei</strong> (il / elle), <strong>noi</strong> (nous), <strong>voi</strong> (vous pluriel), <strong>loro</strong> (ils / elles).</p>
   </div>
   <div class="card">
-    <h3><span class="card-num">2</span>C'è et Ci sono (Il y a)</h3>
-    <ul>
-      <li><strong>C'è</strong> + singulier : <em class="it">C'è un problema</em> (Il y a un problème).</li>
-      <li><strong>Ci sono</strong> + pluriel : <em class="it">Ci sono due cani</em> (Il y a deux chiens).</li>
-    </ul>
-  </div>
-`,
-'a1-5': () => `
-  <div class="card">
-    <h3><span class="card-num">1</span>Tu ou Lei ? La règle du vouvoiement</h3>
+    <h3><span class="card-num">2</span>Tu ou Lei ? La règle du vouvoiement</h3>
     <p>Contrairement au français, <strong>l'italien utilise la 3e personne du singulier féminin : Lei</strong> pour vouvoyer une seule personne (homme ou femme).</p>
     <ul>
       <li><strong>Tu (Familier) :</strong> <em class="it">Come ti chiami?</em> (Comment t'appelles-tu ?)</li>
       <li><strong>Lei (Formel) :</strong> <em class="it">Come si chiama?</em> (Comment vous appelez-vous ?)</li>
     </ul>
   </div>
-`,
-'a1-6': () => `
-  <p class="lesson-intro">Ce lexique de base te permet de te présenter et de survivre dans 80% des conversations simples.</p>
-  <div class="card"><h3>Saluti (Salutations)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Salutations'))}</div>
-  <div class="card"><h3>La famiglia</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Famille'))}</div>
-  <div class="card"><h3>I numeri (Nombres)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Chiffres'))}</div>
+  ${renderAlertBox("À l'écrit", "Le pronom de politesse s'écrit toujours avec une majuscule (Lei) pour éviter la confusion avec le pronom féminin 'elle' (lei).")}
 `,
 
+'a1-5': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les trois groupes réguliers (-are, -ere, -ire)</h3>
+    ${renderConjTable('Verbe', CONJ_PRESENT)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Le piège du troisième groupe (-ire)</h3>
+    <p>Certains verbes du 3e groupe insèrent <strong>-isc-</strong> entre le radical et la terminaison (sauf à noi et voi). Exemples : <em class="it">capire</em> (comprendre), <em class="it">finire</em> (finir), <em class="it">preferire</em> (préférer).</p>
+  </div>
+  ${renderAlertBox("Astuce conversation", "L'usage des pronoms sujets (io, tu, lui...) n'est pas obligatoire en italien. On dira 'Mangio una pizza' et non 'Io mangio una pizza'.")}
+`,
+
+'a1-6': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Essere (Être) et Avere (Avoir)</h3>
+    <p>Ce sont les verbes les plus importants, mais ils sont totalement irréguliers.</p>
+    ${renderConjTable('Verbe', CONJ_ESSERE_AVERE)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>L'utilisation de Avere</h3>
+    <p>L'italien utilise <em class="it">avere</em> pour des sensations où le français utilise "être" :</p>
+    <ul>
+      <li><em class="it">Avere fame / sete</em> : avoir faim / soif.</li>
+      <li><em class="it">Avere caldo / freddo</em> : avoir chaud / froid (<em class="it">Ho caldo</em> = J'ai chaud).</li>
+      <li><em class="it">Avere ... anni</em> : avoir ... ans (<em class="it">Ho venti anni</em>).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">3</span>C'è et Ci sono (Il y a)</h3>
+    <ul>
+      <li><strong>C'è</strong> + singulier : <em class="it">C'è un problema</em> (Il y a un problème).</li>
+      <li><strong>Ci sono</strong> + pluriel : <em class="it">Ci sono due cani</em> (Il y a deux chiens).</li>
+    </ul>
+  </div>
+`,
+
+'a1-7': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les verbes modaux</h3>
+    <p>Ces verbes expriment la volonté, le pouvoir ou le devoir. Ils sont très souvent suivis d'un infinitif.</p>
+    ${renderConjTable('Verbe', CONJ_MODALI)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Exemples d'utilisation</h3>
+    <ul>
+      <li><em class="it">Voglio mangiare</em> (Je veux manger)</li>
+      <li><em class="it">Devi studiare</em> (Tu dois étudier)</li>
+      <li><em class="it">Non posso venire</em> (Je ne peux pas venir)</li>
+      <li><em class="it">So parlare italiano</em> (Je sais parler italien)</li>
+    </ul>
+  </div>
+`,
+
+'a1-8': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les mots interrogatifs</h3>
+    <ul>
+      <li><strong>Chi ?</strong> (Qui ?) $\\rightarrow$ <em class="it">Chi è lui?</em> (Qui est-il ?)</li>
+      <li><strong>Cosa / Che cosa ?</strong> (Quoi / Que ?) $\\rightarrow$ <em class="it">Cosa mangi?</em> (Que manges-tu ?)</li>
+      <li><strong>Dove ?</strong> (Où ?) $\\rightarrow$ <em class="it">Dove abiti?</em> (Où habites-tu ?)</li>
+      <li><strong>Quando ?</strong> (Quand ?) $\\rightarrow$ <em class="it">Quando parti?</em> (Quand pars-tu ?)</li>
+      <li><strong>Perché ?</strong> (Pourquoi / Parce que) $\\rightarrow$ <em class="it">Perché studi l'italiano?</em> (Pourquoi étudies-tu l'italien ?)</li>
+      <li><strong>Come ?</strong> (Comment ?) $\\rightarrow$ <em class="it">Come stai?</em> (Comment vas-tu ?)</li>
+      <li><strong>Quanto ?</strong> (Combien ?) $\\rightarrow$ <em class="it">Quanto costa?</em> (Combien ça coûte ?)</li>
+    </ul>
+  </div>
+`,
+
+'a1-9': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>L'accord des adjectifs</h3>
+    <p>Comme les noms, les adjectifs s'accordent en genre et en nombre avec le nom qu'ils décrivent :</p>
+    <ul>
+      <li>Les adjectifs en <strong>-o</strong> ont 4 formes : <em class="it">bello, bella, belli, belle</em>.</li>
+      <li>Les adjectifs en <strong>-e</strong> ont 2 formes : <em class="it">grande</em> (masc/fém singulier), <em class="it">grandi</em> (masc/fém pluriel).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Les adjectifs possessifs</h3>
+    <p>En italien, <strong>on met un article défini devant le possessif</strong> !</p>
+    <ul>
+      <li><em class="it">Il mio libro</em> (Mon livre)</li>
+      <li><em class="it">La tua casa</em> (Ta maison)</li>
+      <li><em class="it">I suoi amici</em> (Ses amis)</li>
+    </ul>
+  </div>
+  ${renderAlertBox("Règle de la famille", "On ne met PAS d'article devant les noms de famille au singulier : on dit 'mio padre' (pas 'il mio padre'). Mais au pluriel, l'article revient : 'i miei fratelli'.")}
+`,
+
+'a1-10': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>La négation de base</h3>
+    <p>Pour faire une phrase négative, on place <strong>non</strong> juste avant le verbe.</p>
+    <ul>
+      <li><em class="it">Io non parlo inglese.</em> (Je ne parle pas anglais.)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>Les doubles négations</h3>
+    <p>Contrairement au français, l'italien conserve souvent le mot 'non' même avec un autre terme négatif :</p>
+    <ul>
+      <li><strong>Non ... mai</strong> (ne ... jamais) $\\rightarrow$ <em class="it">Non bevo mai caffè.</em></li>
+      <li><strong>Non ... niente / nulla</strong> (ne ... rien) $\\rightarrow$ <em class="it">Non capisco niente.</em></li>
+      <li><strong>Non ... nessuno</strong> (ne ... personne) $\\rightarrow$ <em class="it">Non c'è nessuno.</em></li>
+    </ul>
+  </div>
+`,
+
+'a1-11': () => `
+  <div class="card">
+    <h3><span class="card-num">1</span>Les verbes d'action irréguliers</h3>
+    <p>Ces 4 verbes sont essentiels au quotidien pour parler de tes déplacements et activités.</p>
+    ${renderConjTable('Verbes Irréguliers', CONJ_IRREG_A1)}
+  </div>
+  <div class="card">
+    <h3><span class="card-num">2</span>L'utilisation de 'Fare'</h3>
+    <p>Le verbe faire s'utilise dans de nombreuses expressions :</p>
+    <ul>
+      <li><em class="it">Fare colazione</em> (Prendre le petit déjeuner)</li>
+      <li><em class="it">Fare la spesa</em> (Faire les courses)</li>
+      <li><em class="it">Fare una passeggiata</em> (Faire une promenade)</li>
+    </ul>
+  </div>
+`,
+
+'a1-12': () => `
+  <p class="lesson-intro">Le vocabulaire de survie final pour valider ton niveau A1.</p>
+  <div class="card"><h3>Saluti (Salutations)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Salutations'))}</div>
+  <div class="card"><h3>Domande (Questions)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Questions'))}</div>
+  <div class="card"><h3>Tempo (Le Temps)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Temps'))}</div>
+`,
+
+
+/* ================== NIVEAU A2 ================== */
 'a2-1': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Le Passé Composé (Passato Prossimo)</h3>
@@ -962,7 +963,6 @@ const LESSON_CONTENT = {
   </div>
   ${renderAlertBox("Participes Irréguliers", "Beaucoup de verbes en -ere sont irréguliers au participe : Fare (fatto), Leggere (letto), Prendere (preso), Scrivere (scritto), Vedere (visto).")}
 `,
-
 'a2-2': () => `
   <div class="card">
     <h3><span class="card-num">1</span>L'Imparfait (Imperfetto)</h3>
@@ -976,7 +976,6 @@ const LESSON_CONTENT = {
   </div>
   ${renderAlertBox("Différence cruciale", "Imperfetto = Le décor, l'habitude ('Quand j'étais enfant, je mangeais des pommes'). Passato prossimo = L'action soudaine ou achevée ('Soudain, le téléphone a sonné').")}
 `,
-
 'a2-3': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Les Prépositions Articulées</h3>
@@ -994,7 +993,6 @@ const LESSON_CONTENT = {
   </div>
   ${renderAlertBox("Exceptions", "Les prépositions 'con' (avec), 'per' (pour), et 'tra/fra' (entre) ne se contractent presque jamais, on les laisse séparées : 'con il', 'per la'.")}
 `,
-
 'a2-4': () => `
   <div class="card">
     <h3><span class="card-num">1</span>Le Comparatif</h3>
@@ -1014,20 +1012,15 @@ const LESSON_CONTENT = {
     <p>Bello $\\rightarrow$ <em class="it">Bellissimo</em> (Magnifique). Buono $\\rightarrow$ <em class="it">Buonissimo</em> (Délicieux).</p>
   </div>
 `,
-
 'a2-5': () => `
   <p class="lesson-intro">Enrichis ton vocabulaire avec les thèmes essentiels du quotidien et des voyages.</p>
   <div class="card"><h3>Nourriture (Il cibo)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Nourriture'))}</div>
   <div class="card"><h3>Voyages (I viaggi)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Voyages'))}</div>
-  <div class="card"><h3>Météo (Il tempo)</h3>${renderVocabGrid(VOCAB_ALL.filter(v=>v.cat==='Météo'))}</div>
 `
 };
 
 window.addEventListener('load', () => {
-  renderLogo();
-  renderBackgroundOrnaments();
-  buildSidebar();
-  updateTopbarStats();
+  renderLogo(); renderBackgroundOrnaments(); buildSidebar(); updateTopbarStats();
   if (state.darkMode) document.documentElement.classList.add('dark');
   loadContent('home');
 });
